@@ -1,5 +1,5 @@
 const request = require('request')
-const API_KEY = 'AIzaSyCub8nBhL-mM4JskZYecd7oF5h3vmoUJ4Y'
+const API_KEY = require('./key')
 const BASE_URL = `https://translation.googleapis.com/language/translate/v2/languages&key=${API_KEY}`
 
 function getLanguages(req, res, next) {
