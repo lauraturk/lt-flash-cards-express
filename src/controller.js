@@ -1,8 +1,8 @@
 const request = require('request')
-const API_KEY = // API KEY GOES HERE
-const BASE_URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=${API_KEY}`
+const API_KEY = 'AIzaSyCub8nBhL-mM4JskZYecd7oF5h3vmoUJ4Y'
+const BASE_URL = `https://translation.googleapis.com/language/translate/v2/languages&key=${API_KEY}`
 
-function getPlaces(req, res, next) {
+function getLanguages(req, res, next) {
   request(BASE_URL, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.send(body)
@@ -11,5 +11,5 @@ function getPlaces(req, res, next) {
 }
 
 module.exports = {
-  getPlaces: getPlaces
+  getLanguages: getLanguages
 };
