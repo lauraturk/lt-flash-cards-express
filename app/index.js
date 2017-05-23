@@ -4,10 +4,10 @@ import { render } from 'react-dom'
 class Root extends Component {
   componentDidMount() {
     // INSERT API CALL TO YOUR INTERNAL API
-    return fetch('/api', {
+    return fetch('/api/languages', {
       method: 'GET'
     })
-    .then(response => console.log(response))
+    .then(response => response.json())
     .then(data => console.log(data))
   }
 
