@@ -17,4 +17,15 @@ export default class fetchHelper {
       .then(response => response.json())
       .then(data => console.log(data))
     }
+
+  static definitionsFetch(q) {
+    return fetch('/api/definitions', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(q)
+
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+    }
 }

@@ -5,7 +5,7 @@ const BASE_URL = `https://translation.googleapis.com/language/translate/v2`
 
 function getTranslations(req, res, next) {
   request({
-    url: BASE_URL + API_KEY,
+    url: BASE_URL + API_KEY.google,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ function getTranslations(req, res, next) {
 
 function getLanguages(req, res, next) {
   request({
-    url: `${BASE_URL}/languages/${API_KEY}`,
+    url: `${BASE_URL}/languages/${API_KEY.google}`,
     // method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -37,13 +37,15 @@ function getLanguages(req, res, next) {
 }
 
 function getDefinitions(req, res, next) {
+  console.log(req)
   request({
-    url: BASE_URL,
-    method: 'POST',
+    url: `https://od-api.oxforddictionaries.com/api/v1/entries/es/${req.body}`,
+    method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({q: req.body.q, target:req.body.target})
+      'Accept': 'application/json',
+      'app_id': API_KEY.oedApp_id,
+      'app_key': API_KEY.oedApp_key
+    }
   },
    function (error, response, body) {
     if (!error && response.statusCode == 200) {
