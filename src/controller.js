@@ -37,9 +37,9 @@ function getLanguages(req, res, next) {
 }
 
 function getDefinitions(req, res, next) {
-  console.log(req)
+  console.log(req.body.data)
   request({
-    url: `https://od-api.oxforddictionaries.com/api/v1/entries/es/${req.body}`,
+    url: `https://od-api.oxforddictionaries.com/api/v1/entries/es/${req.body.data}`,
     method: 'GET',
     headers: {
       'Accept': 'application/json',
