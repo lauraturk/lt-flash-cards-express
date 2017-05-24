@@ -1,7 +1,7 @@
 {
-  "name": "example-api",
+  "name": "flash-cards",
   "version": "1.0.0",
-  "description": "MeatMeet",
+  "description": "Turing School of Software and Design Self Directed Personal Project",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
@@ -15,11 +15,13 @@
     "express": "^4.15.3",
     "express-cors": "0.0.3",
     "nodemon": "^1.11.0",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.1",
-    "react-router-redux": "^4.0.7",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0"
