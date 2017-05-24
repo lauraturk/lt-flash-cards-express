@@ -7,7 +7,7 @@ export default class SearchForm extends Component {
   constructor() {
     super()
     this.state = {
-      q: 'manzana',
+      q: '',
       target: 'en'
       // target: 'en'
     }
@@ -16,12 +16,17 @@ export default class SearchForm extends Component {
   componentDidMount() {
     console.log('mounted?')
 
-      fetchHelper.translationFetch(this.state)
+
       fetchHelper.languagesFetch()
+      // fetchHelper.definitionsFetch(this.state.q)
   }
 
-  handleChange() {
+  handleChange(e) {
     this.setState({q: e.target.value})
+  }
+
+  handleClick() {
+    fetchHelper.translationFetch(this.state)
   }
 
   render() {
@@ -29,6 +34,10 @@ export default class SearchForm extends Component {
       <div className="search-form-wrapper">
         <SettingsForm />
         <input type="text" value={this.state.q} onChange={(e) => this.handleChange(e)}></input>
+        <input type="submit"
+               onClick={(e) => {
+                        e.preventDefault
+                        return this.handleClick(e)}}></input>
       </div>
     )
   }
