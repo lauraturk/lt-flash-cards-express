@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
-// import { CardDeck } from '../CardDeck/CardDeck'
+import { SettingsForm } from '../SettingsForm/SettingsForm'
+import fetchHelper from '../../fetchHelper'
 
 export default class SearchForm extends Component {
   constructor() {
@@ -14,13 +15,9 @@ export default class SearchForm extends Component {
 
   componentDidMount() {
     console.log('mounted?')
-    return fetch('/api/languages', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({'q' : 'manzana', 'target': 'en'})
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
+
+      fetchHelper.translationFetch(this.state)
+      fetchHelper.languagesFetch()
   }
 
   handleChange() {
@@ -30,6 +27,7 @@ export default class SearchForm extends Component {
   render() {
     return (
       <div className="search-form-wrapper">
+        <SettingsForm />
         <input type="text" value={this.state.q} onChange={(e) => this.handleChange(e)}></input>
       </div>
     )
