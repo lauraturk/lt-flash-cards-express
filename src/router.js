@@ -4,6 +4,6 @@ var controller = require('./controller');
 
   router.get('/languages', controller.getLanguages)
   router.post('/languages', controller.getTranslations)
-  router.put('/definitions', controller.getDefinitions)
+  router.post('/definitions', controller.getDefinitions)
 
 module.exports = router;

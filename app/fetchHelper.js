@@ -20,10 +20,9 @@ export default class fetchHelper {
 
   static definitionsFetch(q) {
     return fetch('/api/definitions', {
-        method: 'PUT',
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(q)
-
+        body: JSON.stringify({"data": q})
       })
       .then(response => response.json())
       .then(data => console.log(data))

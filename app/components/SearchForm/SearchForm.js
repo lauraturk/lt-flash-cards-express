@@ -18,7 +18,6 @@ export default class SearchForm extends Component {
 
 
       fetchHelper.languagesFetch()
-      // fetchHelper.definitionsFetch(this.state.q)
   }
 
   handleChange(e) {
@@ -27,6 +26,7 @@ export default class SearchForm extends Component {
 
   handleClick() {
     fetchHelper.translationFetch(this.state)
+    fetchHelper.definitionsFetch(this.state.q)
   }
 
   render() {
