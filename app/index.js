@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
+import { ReactDom, render } from 'react-dom'
+import { createStore, applyMiddleware, combineReducers, } from 'redux'
+import { Provider } from 'react-redux'
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+import { BrowserHistory } from 'react-router'
+import createHistory from 'history/createBrowserHistory'
+import { Route } from 'react-router-dom'
 
-class Root extends Component {
-  componentDidMount() {
-    // INSERT API CALL TO YOUR INTERNAL API
-    return fetch('/api/languages', {
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-  }
+import { App } from './components/App/App'
 
-  render() {
-    return (
-      <div>Hello World</div>
-    )
-  }
-}
+const history = createHistory()
+const routeMiddleware = routerMiddleware(history)
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(devTools, applyMiddleware())
 
-render(<Root />, document.getElementById('main'))
+
+  // }
+  // <ConnectedRouter>
+  // </ConnectedRouter>,
+
+render(
+
+    <Provider store={store}>
+      <App />
+    </Provider>,
+  document.getElementById('main'))
