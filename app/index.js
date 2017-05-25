@@ -10,11 +10,12 @@ import thunk from 'redux-thunk'
 
 import { App } from './components/App/App'
 import { languages } from './reducers/settings-reducer'
+import { rootReducer } from './reducers/index.js'
 
 const history = createHistory()
 const routeMiddleware = routerMiddleware(history)
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(languages, devTools, applyMiddleware(thunk, routeMiddleware))
+const store = createStore(rootReducer, devTools, applyMiddleware(thunk, routeMiddleware))
 
 
   // }

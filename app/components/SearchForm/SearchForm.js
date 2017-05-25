@@ -25,7 +25,7 @@ export default class SearchForm extends Component {
 
   handleClick() {
     translationFetch(this.state)
-    definitionsFetch(this.state.q)
+    // definitionsFetch(this.state.q)
   }
 
   render() {

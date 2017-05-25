@@ -4,17 +4,17 @@ import { SettingsForm } from '../components/SettingsForm/SettingsForm'
 
 const mapStateToProps = (state) => {
   return {
-    languageSet : state.languageSet
+    languages : state.languages
   }
 }
 
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    populateLanguages: () => {
-      dispatch(addLanguages(languageSet))
-    }
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     populateLanguages: () => {
+//       dispatch(addLanguages(languageSet))
+//     }
+//   }
+// }
 
 export default connect(mapStateToProps, null)(SettingsForm)
