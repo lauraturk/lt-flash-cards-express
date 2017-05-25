@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { SettingsForm } from '../components/SettingsForm/SettingsForm'
-// import { loadLanguageList, addLanguages } from '../actions/index'
+import { selectLanguage } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
@@ -9,12 +9,12 @@ const mapStateToProps = (state) => {
 }
 
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     populateLanguages: () => {
-//       dispatch(addLanguages(languageSet))
-//     }
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectTargetLanguage: (language) => {
+      dispatch(selectLanguage(language))
+    }
+  }
+}
 
-export default connect(mapStateToProps, null)(SettingsForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsForm)

@@ -2,11 +2,11 @@ import { connect } from 'react-redux'
 import SearchForm from '../components/SearchForm/SearchForm'
 import { loadLanguageList } from '../actions/index'
 
-// const mapStateToProps = (state) => {
-//   return {
-//     languageSet : state.languageSet
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    targetLanguage : state.targetLanguage
+  }
+}
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SearchForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)

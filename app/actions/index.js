@@ -26,6 +26,13 @@ export const addLanguages = (languageSet) => {
   }
 }
 
+export const selectLanguage = (language) => {
+  return {
+    type: 'SELECT_LANGUAGE',
+    language
+  }
+}
+
 export const addCard = (inputWord, translatedWord) => {
   return {
     type: 'ADD_CARD',

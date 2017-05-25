@@ -10,9 +10,9 @@ export default class SearchForm extends Component {
     super()
     this.state = {
       q: '',
-      target: 'en'
       // target: 'en'
     }
+
   }
 
   componentDidMount() {
@@ -24,7 +24,8 @@ export default class SearchForm extends Component {
   }
 
   handleClick() {
-    translationFetch(this.state)
+    // console.log(Object.assign({}, this.state, this.props.targetLanguage))
+    translationFetch(this.state, this.props.targetLanguage)
     // definitionsFetch(this.state.q)
   }
 
