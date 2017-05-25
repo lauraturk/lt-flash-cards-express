@@ -1,11 +1,11 @@
 const request = require('request')
-const API_KEY = require('./key')
+require('dotenv').load()
 const BASE_URL = `https://translation.googleapis.com/language/translate/v2`
 
 
 function getTranslations(req, res, next) {
   request({
-    url: BASE_URL + API_KEY.google,
+    url: BASE_URL + process.env.GOOGLE_KEY,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ function getTranslations(req, res, next) {
 
 function getLanguages(req, res, next) {
   request({
-    url: `${BASE_URL}/languages/${API_KEY.google}`,
+    url: `${BASE_URL}/languages/${process.env.GOOGLE_KEY}`,
     // method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -43,8 +43,8 @@ function getDefinitions(req, res, next) {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'app_id': API_KEY.oedApp_id,
-      'app_key': API_KEY.oedApp_key
+      'app_id': `${process.env.OED_APP_ID}`,
+      'app_key': `${process.env.OED_APP_KEY}`
     }
   },
    function (error, response, body) {
