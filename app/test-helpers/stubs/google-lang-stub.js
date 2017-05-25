@@ -2,316 +2,420 @@ module.exports = {
     "data": {
         "languages": [
             {
-                "language": "af"
+                "language": "af",
+                "name": "Afrikaans"
             },
             {
-                "language": "am"
+                "language": "sq",
+                "name": "Albanian"
             },
             {
-                "language": "ar"
+                "language": "am",
+                "name": "Amharic"
             },
             {
-                "language": "az"
+                "language": "ar",
+                "name": "Arabic"
             },
             {
-                "language": "be"
+                "language": "hy",
+                "name": "Armenian"
             },
             {
-                "language": "bg"
+                "language": "az",
+                "name": "Azerbaijani"
             },
             {
-                "language": "bn"
+                "language": "eu",
+                "name": "Basque"
             },
             {
-                "language": "bs"
+                "language": "be",
+                "name": "Belarusian"
             },
             {
-                "language": "ca"
+                "language": "bn",
+                "name": "Bengali"
             },
             {
-                "language": "ceb"
+                "language": "bs",
+                "name": "Bosnian"
             },
             {
-                "language": "co"
+                "language": "bg",
+                "name": "Bulgarian"
             },
             {
-                "language": "cs"
+                "language": "ca",
+                "name": "Catalan"
             },
             {
-                "language": "cy"
+                "language": "ceb",
+                "name": "Cebuano"
             },
             {
-                "language": "da"
+                "language": "ny",
+                "name": "Chichewa"
             },
             {
-                "language": "de"
+                "language": "zh",
+                "name": "Chinese (Simplified)"
             },
             {
-                "language": "el"
+                "language": "zh-TW",
+                "name": "Chinese (Traditional)"
             },
             {
-                "language": "en"
+                "language": "co",
+                "name": "Corsican"
             },
             {
-                "language": "eo"
+                "language": "hr",
+                "name": "Croatian"
             },
             {
-                "language": "es"
+                "language": "cs",
+                "name": "Czech"
             },
             {
-                "language": "et"
+                "language": "da",
+                "name": "Danish"
             },
             {
-                "language": "eu"
+                "language": "nl",
+                "name": "Dutch"
             },
             {
-                "language": "fa"
+                "language": "en",
+                "name": "English"
             },
             {
-                "language": "fi"
+                "language": "eo",
+                "name": "Esperanto"
             },
             {
-                "language": "fr"
+                "language": "et",
+                "name": "Estonian"
             },
             {
-                "language": "fy"
+                "language": "tl",
+                "name": "Filipino"
             },
             {
-                "language": "ga"
+                "language": "fi",
+                "name": "Finnish"
             },
             {
-                "language": "gd"
+                "language": "fr",
+                "name": "French"
             },
             {
-                "language": "gl"
+                "language": "fy",
+                "name": "Frisian"
             },
             {
-                "language": "gu"
+                "language": "gl",
+                "name": "Galician"
             },
             {
-                "language": "ha"
+                "language": "ka",
+                "name": "Georgian"
             },
             {
-                "language": "haw"
+                "language": "de",
+                "name": "German"
             },
             {
-                "language": "hi"
+                "language": "el",
+                "name": "Greek"
             },
             {
-                "language": "hmn"
+                "language": "gu",
+                "name": "Gujarati"
             },
             {
-                "language": "hr"
+                "language": "ht",
+                "name": "Haitian Creole"
             },
             {
-                "language": "ht"
+                "language": "ha",
+                "name": "Hausa"
             },
             {
-                "language": "hu"
+                "language": "haw",
+                "name": "Hawaiian"
             },
             {
-                "language": "hy"
+                "language": "iw",
+                "name": "Hebrew"
             },
             {
-                "language": "id"
+                "language": "hi",
+                "name": "Hindi"
             },
             {
-                "language": "ig"
+                "language": "hmn",
+                "name": "Hmong"
             },
             {
-                "language": "is"
+                "language": "hu",
+                "name": "Hungarian"
             },
             {
-                "language": "it"
+                "language": "is",
+                "name": "Icelandic"
             },
             {
-                "language": "iw"
+                "language": "ig",
+                "name": "Igbo"
             },
             {
-                "language": "ja"
+                "language": "id",
+                "name": "Indonesian"
             },
             {
-                "language": "jw"
+                "language": "ga",
+                "name": "Irish"
             },
             {
-                "language": "ka"
+                "language": "it",
+                "name": "Italian"
             },
             {
-                "language": "kk"
+                "language": "ja",
+                "name": "Japanese"
             },
             {
-                "language": "km"
+                "language": "jw",
+                "name": "Javanese"
             },
             {
-                "language": "kn"
+                "language": "kn",
+                "name": "Kannada"
             },
             {
-                "language": "ko"
+                "language": "kk",
+                "name": "Kazakh"
             },
             {
-                "language": "ku"
+                "language": "km",
+                "name": "Khmer"
             },
             {
-                "language": "ky"
+                "language": "ko",
+                "name": "Korean"
             },
             {
-                "language": "la"
+                "language": "ku",
+                "name": "Kurdish (Kurmanji)"
             },
             {
-                "language": "lb"
+                "language": "ky",
+                "name": "Kyrgyz"
             },
             {
-                "language": "lo"
+                "language": "lo",
+                "name": "Lao"
             },
             {
-                "language": "lt"
+                "language": "la",
+                "name": "Latin"
             },
             {
-                "language": "lv"
+                "language": "lv",
+                "name": "Latvian"
             },
             {
-                "language": "mg"
+                "language": "lt",
+                "name": "Lithuanian"
             },
             {
-                "language": "mi"
+                "language": "lb",
+                "name": "Luxembourgish"
             },
             {
-                "language": "mk"
+                "language": "mk",
+                "name": "Macedonian"
             },
             {
-                "language": "ml"
+                "language": "mg",
+                "name": "Malagasy"
             },
             {
-                "language": "mn"
+                "language": "ms",
+                "name": "Malay"
             },
             {
-                "language": "mr"
+                "language": "ml",
+                "name": "Malayalam"
             },
             {
-                "language": "ms"
+                "language": "mt",
+                "name": "Maltese"
             },
             {
-                "language": "mt"
+                "language": "mi",
+                "name": "Maori"
             },
             {
-                "language": "my"
+                "language": "mr",
+                "name": "Marathi"
             },
             {
-                "language": "ne"
+                "language": "mn",
+                "name": "Mongolian"
             },
             {
-                "language": "nl"
+                "language": "my",
+                "name": "Myanmar (Burmese)"
             },
             {
-                "language": "no"
+                "language": "ne",
+                "name": "Nepali"
             },
             {
-                "language": "ny"
+                "language": "no",
+                "name": "Norwegian"
             },
             {
-                "language": "pa"
+                "language": "ps",
+                "name": "Pashto"
             },
             {
-                "language": "pl"
+                "language": "fa",
+                "name": "Persian"
             },
             {
-                "language": "ps"
+                "language": "pl",
+                "name": "Polish"
             },
             {
-                "language": "pt"
+                "language": "pt",
+                "name": "Portuguese"
             },
             {
-                "language": "ro"
+                "language": "pa",
+                "name": "Punjabi"
             },
             {
-                "language": "ru"
+                "language": "ro",
+                "name": "Romanian"
             },
             {
-                "language": "sd"
+                "language": "ru",
+                "name": "Russian"
             },
             {
-                "language": "si"
+                "language": "sm",
+                "name": "Samoan"
             },
             {
-                "language": "sk"
+                "language": "gd",
+                "name": "Scots Gaelic"
             },
             {
-                "language": "sl"
+                "language": "sr",
+                "name": "Serbian"
             },
             {
-                "language": "sm"
+                "language": "st",
+                "name": "Sesotho"
             },
             {
-                "language": "sn"
+                "language": "sn",
+                "name": "Shona"
             },
             {
-                "language": "so"
+                "language": "sd",
+                "name": "Sindhi"
             },
             {
-                "language": "sq"
+                "language": "si",
+                "name": "Sinhala"
             },
             {
-                "language": "sr"
+                "language": "sk",
+                "name": "Slovak"
             },
             {
-                "language": "st"
+                "language": "sl",
+                "name": "Slovenian"
             },
             {
-                "language": "su"
+                "language": "so",
+                "name": "Somali"
             },
             {
-                "language": "sv"
+                "language": "es",
+                "name": "Spanish"
             },
             {
-                "language": "sw"
+                "language": "su",
+                "name": "Sundanese"
             },
             {
-                "language": "ta"
+                "language": "sw",
+                "name": "Swahili"
             },
             {
-                "language": "te"
+                "language": "sv",
+                "name": "Swedish"
             },
             {
-                "language": "tg"
+                "language": "tg",
+                "name": "Tajik"
             },
             {
-                "language": "th"
+                "language": "ta",
+                "name": "Tamil"
             },
             {
-                "language": "tl"
+                "language": "te",
+                "name": "Telugu"
             },
             {
-                "language": "tr"
+                "language": "th",
+                "name": "Thai"
             },
             {
-                "language": "uk"
+                "language": "tr",
+                "name": "Turkish"
             },
             {
-                "language": "ur"
+                "language": "uk",
+                "name": "Ukrainian"
             },
             {
-                "language": "uz"
+                "language": "ur",
+                "name": "Urdu"
             },
             {
-                "language": "vi"
+                "language": "uz",
+                "name": "Uzbek"
             },
             {
-                "language": "xh"
+                "language": "vi",
+                "name": "Vietnamese"
             },
             {
-                "language": "yi"
+                "language": "cy",
+                "name": "Welsh"
             },
             {
-                "language": "yo"
+                "language": "xh",
+                "name": "Xhosa"
             },
             {
-                "language": "zh"
+                "language": "yi",
+                "name": "Yiddish"
             },
             {
-                "language": "zh-TW"
+                "language": "yo",
+                "name": "Yoruba"
             },
             {
-                "language": "zu"
+                "language": "zu",
+                "name": "Zulu"
             }
         ]
     }

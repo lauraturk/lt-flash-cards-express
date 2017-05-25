@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
-import { SettingsForm } from '../SettingsForm/SettingsForm'
+import SettingsFormContainer from '../../containers/SettingsFormContainer'
 import {translationFetch} from '../../fetchHelpers/translationFetch'
 import {definitionsFetch} from '../../fetchHelpers/definitionsFetch'
 import {languagesFetch} from '../../fetchHelpers/languagesFetch'
@@ -16,10 +16,11 @@ export default class SearchForm extends Component {
   }
 
   componentDidMount() {
-    console.log('mounted?')
+    console.log(this.props)
 
+    this.props.populateLanguages()
 
-      languagesFetch()
+      // languagesFetch()
   }
 
   handleChange(e) {
@@ -34,7 +35,7 @@ export default class SearchForm extends Component {
   render() {
     return (
       <div className="search-form-wrapper">
-        <SettingsForm />
+        <SettingsFormContainer />
         <input type="text" value={this.state.q} onChange={(e) => this.handleChange(e)}></input>
         <input type="submit"
                onClick={(e) => {
