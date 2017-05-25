@@ -16,11 +16,7 @@ export default class SearchForm extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
-
     this.props.populateLanguages()
-
-      // languagesFetch()
   }
 
   handleChange(e) {

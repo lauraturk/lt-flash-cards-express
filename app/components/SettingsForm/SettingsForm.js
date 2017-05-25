@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SettingsForm = () => {
+export const SettingsForm = ({ }) => {
   return (
     <div className="settings-form-wrapper">
       <select name="Translate from:">

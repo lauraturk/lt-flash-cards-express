@@ -25,3 +25,11 @@ export const addLanguages = (languageSet) => {
     languageSet
   }
 }
+
+export const addCard = (inputWord, translatedWord) => {
+  return {
+    type: 'ADD_CARD',
+    inputWord,
+    translatedWord
+  }
+}
