@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
 import { SettingsForm } from '../SettingsForm/SettingsForm'
-import fetchHelper from '../../fetchHelper'
+import {translationFetch} from '../../fetchHelpers/translationFetch'
+import {definitionsFetch} from '../../fetchHelpers/definitionsFetch'
+import {languagesFetch} from '../../fetchHelpers/languagesFetch'
 
 export default class SearchForm extends Component {
   constructor() {
@@ -17,7 +19,7 @@ export default class SearchForm extends Component {
     console.log('mounted?')
 
 
-      fetchHelper.languagesFetch()
+      languagesFetch()
   }
 
   handleChange(e) {
@@ -25,8 +27,8 @@ export default class SearchForm extends Component {
   }
 
   handleClick() {
-    fetchHelper.translationFetch(this.state)
-    fetchHelper.definitionsFetch(this.state.q)
+    translationFetch(this.state)
+    definitionsFetch(this.state.q)
   }
 
   render() {
