@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route, Link, NavLink } from 'react-router-dom'
-import { CardDeck } from '../CardDeck/CardDeck'
+import CardDeckContainer from '../../containers/CardDeckContainer'
+// import { Card } from '../Card/CardDeck'
 
 export const CardDeckHolder = () => {
   return (
     <div className="holder-wrapper">
-      <CardDeck />
+      <CardDeckContainer />
     </div>
   )
 }
