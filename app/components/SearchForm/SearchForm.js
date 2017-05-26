@@ -19,7 +19,6 @@ export default class SearchForm extends Component {
   }
 
   handleClick() {
-    console.log(this.props)
     // console.log(Object.assign({}, this.state, this.props.targetLanguage))
     this.props.createTranslationCard(this.state, this.props.targetLanguage)
     // definitionsFetch(this.state.q)
