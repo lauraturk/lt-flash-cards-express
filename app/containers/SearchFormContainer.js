@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import SearchForm from '../components/SearchForm/SearchForm'
-import { loadLanguageList } from '../actions/index'
+import { loadLanguageList, translateWord } from '../actions/index'
+// import { translateWord } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     populateLanguages: () => {
       dispatch(loadLanguageList())
+    },
+    createTranslationCard: (inputWord, targetLanguage) => {
+      dispatch(translateWord(inputWord, targetLanguage))
     }
   }
 }

@@ -6,5 +6,5 @@ export const translationFetch = (q, target) => {
       body: JSON.stringify(Object.assign({}, q, target))
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .catch(error => console.log(error, 'in translationFetch'))
 }

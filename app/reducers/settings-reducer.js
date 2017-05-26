@@ -15,3 +15,10 @@ export const targetLanguage = (state = {'target' : 'en'}, action) => {
       return state
   }
 }
+
+// export const definitionRequest = (state = false, action) => {
+//   switch (action.type) {
+//     case '_DEFINITION':
+//       return
+//   }
+// }

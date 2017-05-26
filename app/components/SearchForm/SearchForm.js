@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
 import SettingsFormContainer from '../../containers/SettingsFormContainer'
-import {translationFetch} from '../../fetchHelpers/translationFetch'
-import {definitionsFetch} from '../../fetchHelpers/definitionsFetch'
-import {languagesFetch} from '../../fetchHelpers/languagesFetch'
 
 export default class SearchForm extends Component {
   constructor() {
     super()
     this.state = {
       q: '',
-      // target: 'en'
     }
-
   }
 
   componentDidMount() {
@@ -24,8 +19,9 @@ export default class SearchForm extends Component {
   }
 
   handleClick() {
+    console.log(this.props)
     // console.log(Object.assign({}, this.state, this.props.targetLanguage))
-    translationFetch(this.state, this.props.targetLanguage)
+    this.props.createTranslationCard(this.state, this.props.targetLanguage)
     // definitionsFetch(this.state.q)
   }
 
