@@ -1,10 +1,24 @@
 import { connect } from 'react-redux'
-import { CardDeck } from '../components/CardDeck/CardDeck'
+import CardDeck from '../components/CardDeck/CardDeck'
+import {addCard, deleteCard} from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
-    currentDeck : state.decks
+    currentDeck : state.deck,
+    currentCard : state.card
   }
 }
 
-export default connect(null, null)(CardDeck)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCard : (deckName, card) => {
+      dispatch(addCard(deckName, card))
+    },
+
+    deleteCard : (card) => {
+      dispatch(deleteCard(card))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardDeck)

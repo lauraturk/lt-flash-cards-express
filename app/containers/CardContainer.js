@@ -10,14 +10,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  /// a button to choose and add card to deck
   return {
     deleteCard : () => {
       dispatch(deleteCard())
     }
   }
-
-  /// a button to delete card if not wanted
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)

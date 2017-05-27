@@ -64,6 +64,6 @@ export const deleteCard = (card) => {
 export const addCard = (deckName, card) => {
   return {
     type: 'ADD_CARD',
-    card
+    deckName,
   }
 }
