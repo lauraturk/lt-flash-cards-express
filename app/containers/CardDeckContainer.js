@@ -3,8 +3,8 @@ import { CardDeck } from '../components/CardDeck/CardDeck'
 
 const mapStateToProps = (state) => {
   return {
-    cardSet : state.card
+    currentDeck : state.decks
   }
 }
 
-export default connect(mapStateToProps, null)(CardDeck)
+export default connect(null, null)(CardDeck)

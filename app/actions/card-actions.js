@@ -1,6 +1,6 @@
-// export const addCard = (inputWord, translatedWord) => {
+// export const createCard = (inputWord, translatedWord) => {
 //   return {
-//     type: 'ADD_CARD',
+//     type: 'CREATE_CARD',
 //     inputWord,
 //     translatedWord
 //   }
