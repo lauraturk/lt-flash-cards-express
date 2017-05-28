@@ -7,6 +7,7 @@ export default class SearchForm extends Component {
     super()
     this.state = {
       q: '',
+      deck: ''
     }
   }
 
@@ -18,21 +19,36 @@ export default class SearchForm extends Component {
     this.setState({q: e.target.value})
   }
 
+  handleDeckChange(e) {
+    this.setState({deck: e.target.value})
+  }
+
   handleClick() {
-    // console.log(Object.assign({}, this.state, this.props.targetLanguage))
     this.props.createTranslationCard(this.state, this.props.targetLanguage)
-    // definitionsFetch(this.state.q)
+  }
+
+  createDeck() {
+    const { currentDeck, currentCard } = this.props
+    let match = Object.keys(currentDeck).find(key => key === this.state.deck)
+    return !match ? {[this.state.deck]: [currentCard]} : currentDeck[this.state.deck].push(currentCard)
   }
 
   render() {
     return (
-      <div className="search-form-wrapper">
+      <div className="search-tools-wrapper">
         <SettingsFormContainer />
         <input type="text" value={this.state.q} onChange={(e) => this.handleChange(e)}></input>
         <input type="submit"
                onClick={(e) => {
                         e.preventDefault
                         return this.handleClick(e)}}></input>
+        <div className="deck-tools">
+          <label>Add to battle deck:</label>
+          <input type="text"
+                 value={this.state.deck}
+                 onChange={(e) => this.handleDeckChange(e)}></input>
+          <button onClick={() => this.props.addCard(this.createDeck())}></button>
+        </div>
       </div>
     )
   }

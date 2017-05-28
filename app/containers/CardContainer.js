@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { Card } from '../components/Card/Card'
-import { deleteCard } from '../actions/index'
+import { cancelCard } from '../actions/index'
 
 
 const mapStateToProps = (state) => {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteCard : () => {
-      dispatch(deleteCard())
+    cancelCard : () => {
+      dispatch(cancelCard())
     }
   }
 }

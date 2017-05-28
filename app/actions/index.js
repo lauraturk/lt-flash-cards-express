@@ -1,11 +1,3 @@
-// import { createCard } from './card-actions'
-// import { loadLanguageList, addLanguages } from './settings-actions'
-//
-// export default {
-//   loadLanguageList,
-//   createCard,
-//   addLanguages
-// }
 const randomId = require('random-id')
 
 import { languagesFetch } from '../fetchHelpers/languagesFetch'
@@ -30,7 +22,6 @@ export const translateWord = (inputWord, targetLanguage) => {
   }
 }
 
-
 export const addLanguages = (languageSet) => {
   return {
     type: 'ADD_LANGUAGES',
@@ -54,9 +45,9 @@ export const createCard = (inputWord, translatedWord) => {
   }
 }
 
-export const deleteCard = (card) => {
+export const cancelCard = (card) => {
   return {
-    type: 'DELETE_CARD',
+    type: 'CANCEL_CARD',
     card
   }
 }
