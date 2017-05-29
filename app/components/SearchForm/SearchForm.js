@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
 import SettingsFormContainer from '../../containers/SettingsFormContainer'
+import ImageUpload from '../ImageUpload/ImageUpload'
 
 export default class SearchForm extends Component {
   constructor() {
@@ -37,7 +38,9 @@ export default class SearchForm extends Component {
   render() {
     return (
       <div className="search-tools-wrapper">
+
         <SettingsFormContainer />
+
         <input type="text"
                value={this.state.q}
                onChange={(e) => this.handleChange(e)}></input>
@@ -46,6 +49,9 @@ export default class SearchForm extends Component {
                         e.preventDefault
                         return this.handleClick('translation')}}></input>
         <button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>
+
+        <ImageUpload />
+
         <div className="deck-tools">
           <label>Add to battle deck:</label>
           <input type="text"
