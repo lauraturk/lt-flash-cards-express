@@ -1,54 +1,36 @@
 import React, { Component } from 'react'
 import { Route, Link, NavLink } from 'react-router-dom'
-import CardContainer from '../../containers/CardContainer'
+import { Card } from '../Card/Card'
+import { Controls } from '../Controls/Controls'
 
-export const CardDeck = () => {
+
+export const CardDeck = (props) => {
+  const { currentDeck } = props
+
+  const deckNames = Object.keys(currentDeck).map((deck, index) => {
+    return (
+      <section key={index} className="card" onClick={(e) => chooseDeck(e.target.innerText)}>
+        {deck}
+      </section>
+    )
+  })
+
+  const chooseDeck = (deckName) => {
+    let matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+
+    const showCard = currentDeck[matchedDeck].map(card => {
+      return (
+        <Card key={card.id} currentCard={card} />
+      )
+    })
+
+  }
+
   return (
-    <div>card deck</div>
+    <div>
+      {deckNames}
+      <div className='hidden'></div>
+    </div>
+
   )
 }
-// export default class CardDeck extends Component{
-//   constructor() {
-//     super()
-//     this.state = {
-//       deck: ''
-//     }
-//   }
-//
-//   handleDeckChange(e) {
-//     this.setState({deck: e.target.value})
-//   }
-//
-//   createDeck() {
-//     const { currentDeck, currentCard } = this.props
-//     let match = Object.keys(currentDeck).find(key => key === this.state.deck)
-//     return !match ? {[this.state.deck]: [currentCard]} : currentDeck[this.state.deck].push(currentCard)
-//   }
-//
-//   // const { currentDeck, currentCard, addCard, cancelCard } = props
-//
-//   render() {
-//
-//     // console.log(Object.keys(this.props.currentDeck))
-//     // cardDeckArray = Object.keys(this.props.currentDeck).map((deck) => {
-//     //   return (
-//     //
-//     //
-//     //
-//     //   )
-//     // })
-//
-//     // {deck.map(card => {return (<CardContainer  />)})}
-//     // {cardDeckArray}
-//
-//     return (
-//       <div className="page-wrapper">
-//         <label>Add to battle deck:</label>
-//         <input type="text"
-//                value={this.state.deck}
-//                onChange={(e) => this.handleDeckChange(e)}></input>
-//         <button onClick={() => this.props.addCard(this.createDeck())}></button>
-//       </div>
-//     )
-//   }
-// }

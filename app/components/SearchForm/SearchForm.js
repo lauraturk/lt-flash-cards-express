@@ -23,8 +23,9 @@ export default class SearchForm extends Component {
     this.setState({deck: e.target.value})
   }
 
-  handleClick() {
-    this.props.createTranslationCard(this.state, this.props.targetLanguage)
+  handleClick(type) {
+    const { createTranslationCard, createDefinitionCard, targetLanguage } = this.props
+    type === 'translation' ? createTranslationCard(this.state, targetLanguage) : createDefinitionCard(this.state.q)
   }
 
   createDeck() {
@@ -37,17 +38,20 @@ export default class SearchForm extends Component {
     return (
       <div className="search-tools-wrapper">
         <SettingsFormContainer />
-        <input type="text" value={this.state.q} onChange={(e) => this.handleChange(e)}></input>
+        <input type="text"
+               value={this.state.q}
+               onChange={(e) => this.handleChange(e)}></input>
         <input type="submit"
                onClick={(e) => {
                         e.preventDefault
-                        return this.handleClick(e)}}></input>
+                        return this.handleClick('translation')}}></input>
+        <button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>
         <div className="deck-tools">
           <label>Add to battle deck:</label>
           <input type="text"
                  value={this.state.deck}
                  onChange={(e) => this.handleDeckChange(e)}></input>
-          <button onClick={() => this.props.addCard(this.createDeck())}></button>
+          <button onClick={() => this.props.addCard(this.createDeck())}>Add Card</button>
         </div>
       </div>
     )

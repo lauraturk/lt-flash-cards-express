@@ -11,12 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // addCard : (deckName, card) => {
-    //   dispatch(addCard(deckName, card))
-    // },
-
-    cancelCard : (card) => {
-      dispatch(cancelCard(card))
+    deleteCard : (deckName, cardId) => {
+      dispatch(deleteCard(deckName, cardId))
     }
   }
 }

@@ -3,7 +3,7 @@ export const deck = (state = {'starter deck' : []}, action) => {
     case 'ADD_CARD':
       return Object.assign({}, state, action.deckName)
 
-    case 'CANCEL_CARD':
+    case 'DELETE_CARD':
       return Object.assign({}, state)
 
     default:

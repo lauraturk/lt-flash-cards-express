@@ -5,7 +5,7 @@ import { Route, Link, NavLink } from 'react-router-dom'
 export const Card = (props) => {
   const { currentCard, cancelCard } = props
   return (
-    <div className="page-wrapper">
+    <div className="card">
       <div>{currentCard.frontCard}</div>
       <div>{currentCard.backCard}</div>
       <button onClick={() => cancelCard()}>Cancel</button>
