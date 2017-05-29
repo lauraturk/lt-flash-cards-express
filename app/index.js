@@ -6,13 +6,16 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import { BrowserHistory } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import { Route } from 'react-router-dom'
+import thunk from 'redux-thunk'
 
 import { App } from './components/App/App'
+import { languages } from './reducers/settings-reducer'
+import { rootReducer } from './reducers/index.js'
 
 const history = createHistory()
 const routeMiddleware = routerMiddleware(history)
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(devTools, applyMiddleware())
+const store = createStore(rootReducer, devTools, applyMiddleware(thunk, routeMiddleware))
 
 
   // }
@@ -22,6 +25,6 @@ const store = createStore(devTools, applyMiddleware())
 render(
 
     <Provider store={store}>
-      <App />
+      <App store={store}/>
     </Provider>,
   document.getElementById('main'))

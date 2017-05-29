@@ -1,17 +1,25 @@
 import React from 'react'
 
-export const SettingsForm = () => {
+export const SettingsForm = (props) => {
+  const { languages, selectTargetLanguage } = props
+
+  const languageOptions = languages.map((language) => {
+    return (
+      <option key={language.language}>{language.name}</option>
+    )
+  })
+
+  const handleLanguageChange = ( languageChoice ) => {
+    const selectedLanguage = languages.find((lang) => {
+      return lang.name === languageChoice
+    })
+    selectTargetLanguage(selectedLanguage.language)
+  }
+
   return (
     <div className="settings-form-wrapper">
-      <select name="Translate from:">
-        <option>Spanish</option>
-        <option>English</option>
-        <option>French</option>
-      </select>
-      <select name="To:">
-        <option>Spanish Definition</option>
-        <option>English</option>
-        <option>German</option>
+      <select name="To:" onChange={(e) => handleLanguageChange(e.target.value)}>
+        {languageOptions}
       </select>
     </div>
   )

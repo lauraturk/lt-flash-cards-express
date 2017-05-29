@@ -22,10 +22,11 @@ function getTranslations(req, res, next) {
 function getLanguages(req, res, next) {
   request({
     url: `${BASE_URL}/languages/${process.env.GOOGLE_KEY}`,
-    // method: 'POST',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    body: JSON.stringify({target: 'en'})
   },
    function (error, response, body) {
     if (!error && response.statusCode == 200) {
