@@ -25,6 +25,12 @@ export default class ImageUpload extends Component {
     }
   }
 
+  handleWordSearch() {
+    const { findImageWords } = this.props
+    var b64 = this.state.imagePreviewUrl.split("base64,")[1];
+    findImageWords(b64)
+  }
+
   render() {
     const {imagePreviewUrl} = this.state
 
@@ -40,6 +46,7 @@ export default class ImageUpload extends Component {
                accept="image/*"
                onChange={(e) => {return this.handleFiles(e)}}></input>
         {$imagePreview}
+        <button onClick={this.handleWordSearch.bind(this)}>Find Words</button>
       </section>
     )
   }

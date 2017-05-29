@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import SearchForm from '../components/SearchForm/SearchForm'
 import { loadLanguageList, translateWord, defineWord, addCard, cancelCard } from '../actions/index'
-// import { translateWord } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {

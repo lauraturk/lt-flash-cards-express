@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { Route, Link, NavLink } from 'react-router-dom'
 import SettingsFormContainer from '../../containers/SettingsFormContainer'
-import ImageUpload from '../ImageUpload/ImageUpload'
+import ImageUploadContainer from '../../containers/ImageUploadContainer'
 
 export default class SearchForm extends Component {
   constructor() {
@@ -50,7 +50,7 @@ export default class SearchForm extends Component {
                         return this.handleClick('translation')}}></input>
         <button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>
 
-        <ImageUpload />
+        <ImageUploadContainer />
 
         <div className="deck-tools">
           <label>Add to battle deck:</label>
