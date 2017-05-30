@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { CardDeck } from '../components/CardDeck/CardDeck'
+import CardDeck from '../components/CardDeck/CardDeck'
 import {cancelCard} from '../actions/index'
 
 const mapStateToProps = (state) => {

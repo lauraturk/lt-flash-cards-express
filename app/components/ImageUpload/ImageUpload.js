@@ -27,7 +27,7 @@ export default class ImageUpload extends Component {
 
   handleWordSearch() {
     const { findImageWords } = this.props
-    var b64 = this.state.imagePreviewUrl.split("base64,")[1];
+    const b64 = this.state.imagePreviewUrl.split("base64,")[1];
     findImageWords(b64)
   }
 

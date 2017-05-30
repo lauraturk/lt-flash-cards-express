@@ -4,33 +4,54 @@ import { Card } from '../Card/Card'
 import { Controls } from '../Controls/Controls'
 
 
-export const CardDeck = (props) => {
-  const { currentDeck } = props
+export default class CardDeck extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      matchedDeck: ''
+    }
+  }
 
-  const deckNames = Object.keys(currentDeck).map((deck, index) => {
-    return (
-      <section key={index} className="card" onClick={(e) => chooseDeck(e.target.innerText)}>
-        {deck}
-      </section>
-    )
-  })
+  chooseDeck (deckName){
+    const { currentDeck, deleteCard } = this.props
 
-  const chooseDeck = (deckName) => {
-    let matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+    this.setState({matchedDeck})
+  }
 
-    const showCard = currentDeck[matchedDeck].map(card => {
+  render () {
+    const { matchedDeck } = this.state
+
+    const { currentDeck, deleteCard } = this.props
+
+    let $chosenCardDeck = null
+
+    if(matchedDeck) {
+      $chosenCardDeck = currentDeck[matchedDeck].map(card, index => {
+        console.log(card, 'in the map');
+        return (
+          <section>
+            <Card key={card.id} currentCard={card} cancelCard={deleteCard}/>
+            <Controls key={index} />
+          </section>
+        )
+      })
+    }
+
+    const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <Card key={card.id} currentCard={card} />
+        <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
+          {deck}
+        </section>
       )
     })
 
+    return (
+      <div>
+        {deckNames}
+        {$chosenCardDeck}
+      </div>
+    )
   }
 
-  return (
-    <div>
-      {deckNames}
-      <div className='hidden'></div>
-    </div>
-
-  )
 }

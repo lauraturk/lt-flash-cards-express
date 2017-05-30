@@ -25,3 +25,9 @@ body {
   height: 300px;
   border: 1px dotted blue;
 }
+
+.deckList {
+  width: 200px;
+  height: 100px;
+  border: 1px dotted purple;
+}
