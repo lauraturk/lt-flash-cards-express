@@ -5,6 +5,7 @@ import { translationFetch } from '../fetchHelpers/translationFetch'
 import { definitionsFetch } from '../fetchHelpers/definitionsFetch'
 import { googleVisionFetch } from '../fetchHelpers/googleVisionFetch'
 import { oedScrubber } from '../fetchHelpers/oedScrubber'
+import { visionScrubber } from '../fetchHelpers/visionScrubber'
 
 export const loadLanguageList = () => {
   return (dispatch) => {
@@ -37,8 +38,7 @@ export const findWords = (stringImage) => {
   return (dispatch) => {
     return googleVisionFetch(stringImage)
     .then(responseObject => {
-      console.log(responseObject)
-      return dispatch(addFoundWords())
+      return dispatch(addFoundWords(visionScrubber(responseObject)))
     })
   }
 }
@@ -92,5 +92,11 @@ export const addFoundWords = (imageWords) => {
   return {
     type: 'ADD_WORDS',
     imageWords
+  }
+}
+
+export const clearWords = () => {
+  return {
+    type: 'CLEAR_WORDS'
   }
 }
