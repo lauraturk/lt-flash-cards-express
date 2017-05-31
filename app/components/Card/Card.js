@@ -3,7 +3,11 @@ import { Route, Link, NavLink } from 'react-router-dom'
 // import { CardDeck } from '../CardDeck/CardDeck'
 
 export const Card = (props) => {
-  const { currentCard, cancelCard } = props
+  const { currentCard, cancelCard, handleShow} = props
+
+  console.log(handleShow)
+
+
   return (
     <div className="card">
       <div>{currentCard.frontCard}</div>

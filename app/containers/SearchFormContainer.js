@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   return {
     targetLanguage : state.targetLanguage,
     currentDeck : state.deck,
-    currentCard : state.card
+    currentCard : state.currentCard
   }
 }
 

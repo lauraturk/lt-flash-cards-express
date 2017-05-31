@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import CardDeck from '../components/CardDeck/CardDeck'
-import {cancelCard} from '../actions/index'
+import {cancelCard, showAnswer} from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
     currentDeck : state.deck,
-    currentCard : state.card
+    currentCard : state.currentCard,
+    controlState : state.controlState
   }
 }
 

@@ -1,4 +1,9 @@
-export const controlState = (state = {cardBackHidden: true, nextCard: false}, action) => {
+const initialState = {
+  cardBackHidden: true,
+  nextCard: false
+}
+
+export const controlState = (state = initialState, action) => {
   switch(action.type){
 
     case 'SHOW_ANSWER':
