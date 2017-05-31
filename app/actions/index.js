@@ -100,3 +100,21 @@ export const clearWords = () => {
     type: 'CLEAR_WORDS'
   }
 }
+
+export const showAnswer = () => {
+  return {
+    type: 'SHOW_ANSWER'
+  }
+}
+
+export const nextCard = () => {
+  return {
+    type: 'NEXT_CARD'
+  }
+}
+
+export const prevCard = () => {
+  return {
+    type: 'PREV_CARD'
+  }
+}

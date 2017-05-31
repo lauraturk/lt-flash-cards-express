@@ -9,7 +9,6 @@ import { Route } from 'react-router-dom'
 import thunk from 'redux-thunk'
 
 import { App } from './components/App/App'
-import { languages } from './reducers/settings-reducer'
 import { rootReducer } from './reducers/index.js'
 
 const history = createHistory()

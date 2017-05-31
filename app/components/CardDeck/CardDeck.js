@@ -1,42 +1,52 @@
 import React, { Component } from 'react'
 import { Route, Link, NavLink } from 'react-router-dom'
 import { Card } from '../Card/Card'
-import { Controls } from '../Controls/Controls'
+import ControlsContainer from '../../containers/ControlsContainer'
 
 
 export default class CardDeck extends Component {
   constructor(props){
-    super(props)
+    super()
     this.state = {
       matchedDeck: ''
     }
+    // const { currentDeck, deleteCard } = this.props
   }
 
   chooseDeck (deckName){
     const { currentDeck, deleteCard } = this.props
-
     const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
     this.setState({matchedDeck})
   }
 
-  render () {
-    const { matchedDeck } = this.state
+  cardRandomizer (min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min)) + min
+  }
 
+  showCard () {
     const { currentDeck, deleteCard } = this.props
-
-    let $chosenCardDeck = null
+    const { matchedDeck } = this.state
+    let $chosenCard = null
 
     if(matchedDeck) {
-      $chosenCardDeck = currentDeck[matchedDeck].map(card, index => {
-        console.log(card, 'in the map');
-        return (
-          <section>
-            <Card key={card.id} currentCard={card} cancelCard={deleteCard}/>
-            <Controls key={index} />
-          </section>
-        )
-      })
+      let randomCard = currentDeck[matchedDeck][this.cardRandomizer(0, currentDeck[matchedDeck].length)]
+      $chosenCard = (
+        <section>
+          <Card key={randomCard.id} currentCard={randomCard} cancelCard={this.deleteCard}/>
+        </section>
+      )
     }
+    return $chosenCard
+  }
+
+
+
+
+
+  render () {
+    const { currentDeck, deleteCard } = this.props
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
@@ -49,7 +59,8 @@ export default class CardDeck extends Component {
     return (
       <div>
         {deckNames}
-        {$chosenCardDeck}
+        {this.showCard()}
+        <ControlsContainer />
       </div>
     )
   }
