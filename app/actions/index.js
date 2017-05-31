@@ -3,7 +3,9 @@ const randomId = require('random-id')
 import { languagesFetch } from '../fetchHelpers/languagesFetch'
 import { translationFetch } from '../fetchHelpers/translationFetch'
 import { definitionsFetch } from '../fetchHelpers/definitionsFetch'
+import { googleVisionFetch } from '../fetchHelpers/googleVisionFetch'
 import { oedScrubber } from '../fetchHelpers/oedScrubber'
+import { visionScrubber } from '../fetchHelpers/visionScrubber'
 
 export const loadLanguageList = () => {
   return (dispatch) => {
@@ -28,6 +30,15 @@ export const defineWord = (inputWord) => {
     return definitionsFetch(inputWord)
     .then(responseObject => {
       return dispatch(createCard(inputWord, oedScrubber(responseObject)))
+    })
+  }
+}
+
+export const findWords = (stringImage) => {
+  return (dispatch) => {
+    return googleVisionFetch(stringImage)
+    .then(responseObject => {
+      return dispatch(addFoundWords(visionScrubber(responseObject)))
     })
   }
 }
@@ -74,5 +85,18 @@ export const deleteCard = (deckName, cardId) => {
     type: 'DELETE_CARD',
     deckName,
     cardId
+  }
+}
+
+export const addFoundWords = (imageWords) => {
+  return {
+    type: 'ADD_WORDS',
+    imageWords
+  }
+}
+
+export const clearWords = () => {
+  return {
+    type: 'CLEAR_WORDS'
   }
 }

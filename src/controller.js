@@ -37,8 +37,25 @@ function getLanguages(req, res, next) {
   })
 }
 
+function getVision(req, res, next) {
+  request({
+    url: `https://vision.googleapis.com/v1/images:annotate${process.env.GOOGLE_KEY}`,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(req.body)
+  },
+   function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      res.send(body)
+    } else {
+      console.log(error, 'in express controller')
+    }
+  })
+}
+
 function getDefinitions(req, res, next) {
-  console.log(req.body.data)
   request({
     url: `https://od-api.oxforddictionaries.com/api/v1/entries/es/${req.body.data}`,
     method: 'GET',
@@ -55,8 +72,11 @@ function getDefinitions(req, res, next) {
   })
 }
 
+
+
 module.exports = {
   getLanguages: getLanguages,
   getTranslations: getTranslations,
-  getDefinitions: getDefinitions
+  getDefinitions: getDefinitions,
+  getVision: getVision
 };
