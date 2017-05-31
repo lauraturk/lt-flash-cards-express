@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Word } from '../Word/Word'
 
 export default class ImageUpload extends Component {
   constructor() {
@@ -27,21 +28,26 @@ export default class ImageUpload extends Component {
 
   handleWordSearch() {
     const { findImageWords, foundWords } = this.props
-    var b64 = this.state.imagePreviewUrl.split("base64,")[1];
+    const b64 = this.state.imagePreviewUrl.split("base64,")[1];
     findImageWords(b64)
   }
 
+  handleWordSelect(e) {
+    const { createTranslationCard, targetLanguage } = this.props
+    createTranslationCard({'q' : e.target.innerText}, targetLanguage)
+  }
+
   render() {
-    const { foundWords } = this.props
+    const { findImageWords, foundWords, translateWord } = this.props
     const {imagePreviewUrl} = this.state
 
     let $foundWords = null
     let $imagePreview = null
 
     if (foundWords) {
-      $foundWords = foundWords.map(word => {
+      $foundWords = foundWords.map((word, index) => {
         return (
-          <div>{word}</div>
+          <Word key={index} word={word} handleWord={this.handleWordSelect.bind(this)} />
         )
       })
     }

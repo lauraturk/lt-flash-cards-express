@@ -38,7 +38,6 @@ export const findWords = (stringImage) => {
   return (dispatch) => {
     return googleVisionFetch(stringImage)
     .then(responseObject => {
-      console.log(responseObject)
       return dispatch(addFoundWords(visionScrubber(responseObject)))
     })
   }

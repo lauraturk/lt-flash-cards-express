@@ -1,14 +1,13 @@
 import React from 'react'
 
-export const Word = ( { word, translateWord, defineWord }) => {
+export const Word = ( { word, handleWord }) => {
 
-  const handleClick = () => {
-
+  const handleClick = (e) => {
+    handleWord(e)
   }
 
   return (
-    <div onClick></div>
-
+    <div onClick={(e) => handleClick(e)}>{word}</div>
   )
 
 }

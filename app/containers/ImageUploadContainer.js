@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import ImageUpload from '../components/ImageUpload/ImageUpload'
-import { findWords, clearWords } from '../actions/index'
+import { findWords, clearWords, translateWord, defineWord } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
-    foundWords : state.foundWords
+    foundWords : state.foundWords,
+    targetLanguage : state.targetLanguage
   }
 }
 
@@ -18,12 +19,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(clearWords())
     },
 
-    translateWord: () => {
-      dispatch(translateWord())
+    createTranslationCard: (inputWord, targetLanguage) => {
+      dispatch(translateWord(inputWord, targetLanguage))
     },
 
-    defineWord: () => {
-      dispatch(defineWord())
+    createDefinitionCard: (inputWord) => {
+      dispatch(defineWord(inputWord))
     },
 
   }

@@ -5,7 +5,7 @@ export const foundWords = (state = [], action) => {
 
     case 'CLEAR_WORDS':
       return state = []
-      
+
     default:
       return state
   }
