@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import CardDeck from '../components/CardDeck/CardDeck'
-import {cancelCard, showAnswer} from '../actions/index'
+import { CardDeck } from '../components/CardDeck/CardDeck'
+import {cancelCard, showAnswer, showDeck} from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +14,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard : (deckName, cardId) => {
       dispatch(deleteCard(deckName, cardId))
+    },
+
+    showDeck: (deckName) => {
+      dispatch(showDeck(deckName))
     }
   }
 }

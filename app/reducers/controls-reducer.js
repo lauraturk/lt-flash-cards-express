@@ -1,6 +1,8 @@
 const initialState = {
   cardBackHidden: true,
-  nextCard: false
+  nextCard: false,
+  matchedDeck: '',
+  showDeck: false
 }
 
 export const controlState = (state = initialState, action) => {
@@ -15,8 +17,17 @@ export const controlState = (state = initialState, action) => {
     case 'NEXT_CARD':
       return Object.assign({}, state, {
         cardBackHidden: true,
-        nextCard: true
+        nextCard: true,
       })
+
+    case 'SHOW_DECK':
+      return Object.assign({}, state, {
+        cardBackHidden: true,
+        nextCard: false,
+        matchedDeck: action.deckName,
+        showDeck: true
+      })
+
 
     default:
       return state

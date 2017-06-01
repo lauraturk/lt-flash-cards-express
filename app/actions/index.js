@@ -101,6 +101,13 @@ export const clearWords = () => {
   }
 }
 
+export const showDeck = (deckName) => {
+  return {
+    type: 'SHOW_DECK',
+    deckName
+  }
+}
+
 export const showAnswer = () => {
   return {
     type: 'SHOW_ANSWER'
