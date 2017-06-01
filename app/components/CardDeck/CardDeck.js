@@ -5,15 +5,23 @@ import ControlsContainer from '../../containers/ControlsContainer'
 // import CardContainer from '../../containers/CardContainer'
 
 
-export const CardDeck = (props) => {
-  const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = props
+export class CardDeck extends Component {
+  constructor(props){
+    super(props)
+  }
 
-  const chooseDeck = (deckName) => {
-    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+  componentShouldUpdate () {
+
+  }
+
+  chooseDeck (deckName) {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const matchedDeck = Object.keys(this.currentDeck).find(deck => {return deck === deckName})
     showDeck(matchedDeck)
   }
 
-  const cardRandomizer = (min, max) => {
+  cardRandomizer (min, max) {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min)) + min
@@ -22,17 +30,19 @@ export const CardDeck = (props) => {
   ////click on deck -deckControl.showDeck = true show deck
   /// click on showAnswer
 
-  const makeRandomCard = () => {
-    return currentDeck[deckControl.matchedDeck][cardRandomizer(0, currentDeck[deckControl.matchedDeck].length)]
+  makeRandomCard () {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    return currentDeck[deckControl.matchedDeck][this.cardRandomizer(0, currentDeck[deckControl.matchedDeck].length)]
   }
 
-  const showCard = () => {
+  showCard () {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
     let $chosenCard = null
 
     if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={makeRandomCard()} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
+          <Card currentCard={this.makeRandomCard()} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
           <ControlsContainer />
         </section>
       )
@@ -40,9 +50,13 @@ export const CardDeck = (props) => {
     return $chosenCard
   }
 
+
+  render() {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <section key={index} className="deckList" onClick={(e) => chooseDeck(e.target.innerText)}>
+        <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
           {deck}
         </section>
       )
@@ -51,7 +65,8 @@ export const CardDeck = (props) => {
     return (
       <div>
         {deckNames}
-        {showCard()}
+        {this.showCard()}
       </div>
     )
   }
+}
