@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     currentCard : state.currentCard,
     controlState : state.controlState,
+    deckControl : state.deckControl
   }
 }
 

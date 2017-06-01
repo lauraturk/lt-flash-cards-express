@@ -16,12 +16,8 @@ export default class SearchForm extends Component {
     this.props.populateLanguages()
   }
 
-  handleChange(e) {
-    this.setState({q: e.target.value})
-  }
-
-  handleDeckChange(e) {
-    this.setState({deck: e.target.value})
+  handleChange(e, stateInfo) {
+    this.setState({[stateInfo]: e.target.value})
   }
 
   handleClick(type) {
@@ -43,7 +39,7 @@ export default class SearchForm extends Component {
 
         <input type="text"
                value={this.state.q}
-               onChange={(e) => this.handleChange(e)}></input>
+               onChange={(e) => this.handleChange(e, 'q')}></input>
         <input type="submit"
                onClick={(e) => {
                         e.preventDefault
@@ -56,7 +52,7 @@ export default class SearchForm extends Component {
           <label>Add to battle deck:</label>
           <input type="text"
                  value={this.state.deck}
-                 onChange={(e) => this.handleDeckChange(e)}></input>
+                 onChange={(e) => this.handleChange(e, 'deck')}></input>
           <button onClick={() => this.props.addCard(this.createDeck())}>Add Card</button>
         </div>
       </div>

@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 import { CardDeck } from '../components/CardDeck/CardDeck'
-import {cancelCard, showAnswer, showDeck} from '../actions/index'
+import {cancelCard, showAnswer, showDeck, nextCard } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
     currentDeck : state.deck,
     currentCard : state.currentCard,
-    controlState : state.controlState
+    controlState : state.controlState,
+    deckControl : state.deckControl
   }
 }
 
@@ -18,6 +19,10 @@ const mapDispatchToProps = (dispatch) => {
 
     showDeck: (deckName) => {
       dispatch(showDeck(deckName))
+    },
+
+    nextCard: () => {
+      dispatch(nextCard())
     }
   }
 }

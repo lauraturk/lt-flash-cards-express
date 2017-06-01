@@ -6,7 +6,7 @@ import ControlsContainer from '../../containers/ControlsContainer'
 
 
 export const CardDeck = (props) => {
-  const { currentDeck, deleteCard, controlState, showDeck } = props
+  const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = props
 
   const chooseDeck = (deckName) => {
     const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
@@ -19,14 +19,20 @@ export const CardDeck = (props) => {
     return Math.floor(Math.random() * (max - min)) + min
   }
 
+  ////click on deck -deckControl.showDeck = true show deck
+  /// click on showAnswer
+
+  const makeRandomCard = () => {
+    return currentDeck[deckControl.matchedDeck][cardRandomizer(0, currentDeck[deckControl.matchedDeck].length)]
+  }
+
   const showCard = () => {
     let $chosenCard = null
 
-    if(controlState.showDeck) {
-      let randomCard = currentDeck[controlState.matchedDeck][cardRandomizer(0, currentDeck[controlState.matchedDeck].length)]
+    if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={randomCard} controlState={controlState} cancelCard={deleteCard} />
+          <Card currentCard={makeRandomCard()} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
           <ControlsContainer />
         </section>
       )
