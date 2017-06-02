@@ -7,11 +7,9 @@ import { deck } from './carddeck-reducer.js'
 import { foundWords } from './imageUpload-reducer.js'
 import { controlState } from './controls-reducer.js'
 import { deckControl } from './deckcontrol-reducer.js'
-import { user } from './user-reducer.js'
 
 
 export const rootReducer = combineReducers({
-  user,
   deckControl,
   controlState,
   foundWords,

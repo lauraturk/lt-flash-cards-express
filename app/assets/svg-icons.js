@@ -8,8 +8,8 @@ export const gearIcon =
     </g>
   </svg>
 
-export const userIcon =
-  <svg width="45" height="46" viewBox="0 0 45 46" ><g stroke="#43484D" strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="round"><path d="M42.25 36c0-6.627-8.954-12-20-12s-20 5.373-20 12"/><path d="M22.25 24.01c6.075 0 11-4.926 11-11 0-6.076-4.925-11-11-11s-11 4.924-11 11c0 6.074 4.925 11 11 11zM42 36v6.565c0 .586-.2 1.435-.78 1.435H3.28C2.71 44 2 43.144 2 42.565V36"/></g></svg>
+// export const userIcon =
+//   <svg width="45" height="46" viewBox="0 0 45 46" ><g stroke="#43484D" strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="round"><path d="M42.25 36c0-6.627-8.954-12-20-12s-20 5.373-20 12"/><path d="M22.25 24.01c6.075 0 11-4.926 11-11 0-6.076-4.925-11-11-11s-11 4.924-11 11c0 6.074 4.925 11 11 11zM42 36v6.565c0 .586-.2 1.435-.78 1.435H3.28C2.71 44 2 43.144 2 42.565V36"/></g></svg>
 
 export const searchIcon =
   <svg width="42" height="44" viewBox="0 0 42 44">

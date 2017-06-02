@@ -23,7 +23,6 @@ export const controlState = (state = initialState, action) => {
       })
 
     case 'NEXT_CARD':
-    console.log(action);
       return Object.assign({}, state, {
         cardBackHidden: true,
         card: makeRandomCard(action.deck, action.deckControl)
@@ -31,8 +30,5 @@ export const controlState = (state = initialState, action) => {
 
     default:
       return state
-
-    // case 'PREV_CARD':
-    //     return Obect.assign({})
   }
 }

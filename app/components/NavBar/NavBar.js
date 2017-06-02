@@ -8,7 +8,6 @@ export const NavBar = () => {
       <NavLink to='/settings' activeClassName='selected' className='icon'>{icon.gearIcon}</NavLink>
       <NavLink to='/search' activeClassName='selected' className='icon'>{icon.searchIcon}</NavLink>
       <NavLink to='/carddecks' activeClassName='selected' className='icon'>{icon.cardIcon}</NavLink>
-      <NavLink to='/user' activeClassName='selected' className='icon'>{icon.userIcon}</NavLink>
     </div>
   )
 }

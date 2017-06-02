@@ -72,8 +72,6 @@ function getDefinitions(req, res, next) {
   })
 }
 
-
-
 module.exports = {
   getLanguages: getLanguages,
   getTranslations: getTranslations,
