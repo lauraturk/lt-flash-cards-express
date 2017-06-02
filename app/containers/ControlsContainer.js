@@ -2,12 +2,18 @@ import { connect } from 'react-redux'
 import { Controls } from '../components/Controls/Controls'
 import { showAnswer, nextCard, prevCard } from '../actions/index'
 
+const mapStateToProps = (state) => {
+  return {
+    deck: state.deck,
+    deckControl: state.deckControl
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
 
-  nextCard : () => {
-    dispatch(nextCard())
+  nextCard : (deckControl, deck) => {
+    dispatch(nextCard(deckControl, deck))
   },
   showAnswer : () => {
     dispatch(showAnswer())
@@ -15,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Controls)
+export default connect(mapStateToProps, mapDispatchToProps)(Controls)

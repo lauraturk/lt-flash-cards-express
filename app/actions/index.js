@@ -115,9 +115,11 @@ export const showAnswer = () => {
   }
 }
 
-export const nextCard = () => {
+export const nextCard = (deckControl, deck) => {
   return {
-    type: 'NEXT_CARD'
+    type: 'NEXT_CARD',
+    deckControl,
+    deck
   }
 }
 

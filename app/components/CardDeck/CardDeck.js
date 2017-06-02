@@ -8,46 +8,52 @@ import ControlsContainer from '../../containers/ControlsContainer'
 export class CardDeck extends Component {
   constructor(props){
     super(props)
+    // this.state={
+    // card: ''
+    // }
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    const { controlState, deckControl } = this.props;
-    // check that nextcard, matcheddeck, and showdeck remain the same;
-    // && (nextProps.controlState.nextCard !== controlState.nextCard))
-    // nextProps.deckControl.showDeck !== deckControl.showDeck) && (nextProps.controlState.nextCard !== controlState.nextCard
-    console.log(!controlState.nextCard)
-    return (!controlState.nextCard)
-  }
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   const { controlState, deckControl } = this.props;
+  //   // check that nextcard, matcheddeck, and showdeck remain the same;
+  //   // && (nextProps.controlState.nextCard !== controlState.nextCard))
+  //   // nextProps.deckControl.showDeck !== deckControl.showDeck) && (nextProps.controlState.nextCard !== controlState.nextCard
+  //   console.log(!controlState.nextCard)
+  //   return (!controlState.nextCard)
+  // }
 
   chooseDeck (deckName) {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
     const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+    deckControl.matchedDeck = matchedDeck;
     showDeck(matchedDeck)
+    nextCard(deckControl, currentDeck)
   }
 
-  cardRandomizer (min, max) {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min)) + min
-  }
+  // cardRandomizer (min, max) {
+  //   const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+  //   min = Math.ceil(min)
+  //   max = Math.floor(max)
+  //   return Math.floor(Math.random() * (max - min)) + min
+  // }
 
   ////click on deck -deckControl.showDeck = true show deck
   /// click on showAnswer
 
-  makeRandomCard () {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    return currentDeck[deckControl.matchedDeck][this.cardRandomizer(0, currentDeck[deckControl.matchedDeck].length)]
-  }
+  // makeRandomCard () {
+  //   const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+  //   const card = currentDeck[deckControl.matchedDeck][this.cardRandomizer(0, currentDeck[deckControl.matchedDeck].length)]
+  //   return card
+  // }
 
   showCard () {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
     let $chosenCard = null
-
+    console.log('erry day');
     if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={this.makeRandomCard()} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
+          <Card currentCard={controlState.card} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
           <ControlsContainer />
         </section>
       )

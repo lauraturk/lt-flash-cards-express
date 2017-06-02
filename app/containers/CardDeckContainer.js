@@ -21,8 +21,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(showDeck(deckName))
     },
 
-    nextCard: () => {
-      dispatch(nextCard())
+    nextCard: (deckControl, deck) => {
+      dispatch(nextCard(deckControl, deck))
     }
   }
 }

@@ -1,7 +1,17 @@
 const initialState = {
   cardBackHidden: true,
-  nextCard: false,
+  card: {}
 
+}
+
+const cardRandomizer = (min, max) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
+}
+
+const makeRandomCard = (deck, deckControl) => {
+  return deck[deckControl.matchedDeck][cardRandomizer(0, deck[deckControl.matchedDeck].length)]
 }
 
 export const controlState = (state = initialState, action) => {
@@ -10,13 +20,13 @@ export const controlState = (state = initialState, action) => {
     case 'SHOW_ANSWER':
       return Object.assign({}, state, {
         cardBackHidden: false,
-        nextCard: false
       })
 
     case 'NEXT_CARD':
+    console.log(action);
       return Object.assign({}, state, {
         cardBackHidden: true,
-        nextCard: true,
+        card: makeRandomCard(action.deck, action.deckControl)
       })
 
     default:
