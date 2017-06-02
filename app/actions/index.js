@@ -126,3 +126,23 @@ export const prevCard = () => {
     type: 'PREV_CARD'
   }
 }
+
+export const signInUser = (userId) => {
+  return {
+    type: 'SIGN_IN_USER',
+    userId,
+  }
+}
+
+export const signOutUser = () => {
+  return {
+    type: 'SIGN_OUT_USER'
+  }
+}
+
+// export const addUserDecks = (userDecks) => {
+//   return {
+//     type: 'LOAD_INITIAL_FAVS',
+//     userDecks
+//   }
+// }
