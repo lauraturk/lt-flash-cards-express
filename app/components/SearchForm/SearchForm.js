@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Route, Link, NavLink } from 'react-router-dom'
 import SettingsFormContainer from '../../containers/SettingsFormContainer'
 import ImageUploadContainer from '../../containers/ImageUploadContainer'
 
@@ -16,12 +15,8 @@ export default class SearchForm extends Component {
     this.props.populateLanguages()
   }
 
-  handleChange(e) {
-    this.setState({q: e.target.value})
-  }
-
-  handleDeckChange(e) {
-    this.setState({deck: e.target.value})
+  handleChange(e, stateInfo) {
+    this.setState({[stateInfo]: e.target.value})
   }
 
   handleClick(type) {
@@ -35,6 +30,16 @@ export default class SearchForm extends Component {
     return !match ? {[this.state.deck]: [currentCard]} : currentDeck[this.state.deck].push(currentCard)
   }
 
+  showDefinitionOption () {
+    let $definitionButton = null
+
+    if(this.props.targetLanguage.target === 'es'){
+      $definitionButton = (<button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>)
+    }
+
+    return $definitionButton
+  }
+
   render() {
     return (
       <div className="search-tools-wrapper">
@@ -43,12 +48,13 @@ export default class SearchForm extends Component {
 
         <input type="text"
                value={this.state.q}
-               onChange={(e) => this.handleChange(e)}></input>
+               onChange={(e) => this.handleChange(e, 'q')}></input>
         <input type="submit"
                onClick={(e) => {
                         e.preventDefault
                         return this.handleClick('translation')}}></input>
-        <button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>
+        {this.showDefinitionOption()}
+
 
         <ImageUploadContainer />
 
@@ -56,7 +62,7 @@ export default class SearchForm extends Component {
           <label>Add to battle deck:</label>
           <input type="text"
                  value={this.state.deck}
-                 onChange={(e) => this.handleDeckChange(e)}></input>
+                 onChange={(e) => this.handleChange(e, 'deck')}></input>
           <button onClick={() => this.props.addCard(this.createDeck())}>Add Card</button>
         </div>
       </div>

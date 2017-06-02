@@ -31,6 +31,7 @@ export const defineWord = (inputWord) => {
     .then(responseObject => {
       return dispatch(createCard(inputWord, oedScrubber(responseObject)))
     })
+    .catch(error => console.log(error, 'in actions'))
   }
 }
 
@@ -100,3 +101,50 @@ export const clearWords = () => {
     type: 'CLEAR_WORDS'
   }
 }
+
+export const showDeck = (deckName) => {
+  return {
+    type: 'SHOW_DECK',
+    deckName
+  }
+}
+
+export const showAnswer = () => {
+  return {
+    type: 'SHOW_ANSWER'
+  }
+}
+
+export const nextCard = (deckControl, deck) => {
+  return {
+    type: 'NEXT_CARD',
+    deckControl,
+    deck
+  }
+}
+
+export const prevCard = () => {
+  return {
+    type: 'PREV_CARD'
+  }
+}
+
+export const signInUser = (userId) => {
+  return {
+    type: 'SIGN_IN_USER',
+    userId,
+  }
+}
+
+export const signOutUser = () => {
+  return {
+    type: 'SIGN_OUT_USER'
+  }
+}
+
+// export const addUserDecks = (userDecks) => {
+//   return {
+//     type: 'LOAD_INITIAL_FAVS',
+//     userDecks
+//   }
+// }

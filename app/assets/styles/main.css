@@ -4,6 +4,10 @@ body {
   font-weight: 100;
 }
 
+label {
+  display: block;
+}
+
 #main h1 {
   padding: 20px;
   border-bottom: 1px dashed #aaa;
@@ -24,4 +28,10 @@ body {
   width: 200px;
   height: 300px;
   border: 1px dotted blue;
+}
+
+.deckList {
+  width: 200px;
+  height: 100px;
+  border: 1px dotted purple;
 }

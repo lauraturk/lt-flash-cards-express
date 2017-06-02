@@ -4,7 +4,7 @@ export const foundWords = (state = [], action) => {
       return [...state, ...action.imageWords]
 
     case 'CLEAR_WORDS':
-      return state = []
+      return []
 
     default:
       return state

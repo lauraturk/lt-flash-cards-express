@@ -1,36 +1,51 @@
 import React, { Component } from 'react'
 import { Route, Link, NavLink } from 'react-router-dom'
 import { Card } from '../Card/Card'
-import { Controls } from '../Controls/Controls'
+import ControlsContainer from '../../containers/ControlsContainer'
 
+export class CardDeck extends Component {
+  constructor(props){
+    super(props)
+  }
 
-export const CardDeck = (props) => {
-  const { currentDeck } = props
+  chooseDeck (deckName) {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+    deckControl.matchedDeck = matchedDeck;
+    showDeck(matchedDeck)
+    nextCard(deckControl, currentDeck)
+  }
 
-  const deckNames = Object.keys(currentDeck).map((deck, index) => {
-    return (
-      <section key={index} className="card" onClick={(e) => chooseDeck(e.target.innerText)}>
-        {deck}
-      </section>
-    )
-  })
+  showCard () {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    let $chosenCard = null
+    if(deckControl.showDeck) {
+      $chosenCard = (
+        <section>
+          <Card currentCard={controlState.card} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
+          <ControlsContainer />
+        </section>
+      )
+    }
+    return $chosenCard
+  }
 
-  const chooseDeck = (deckName) => {
-    let matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
+  render() {
+    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
 
-    const showCard = currentDeck[matchedDeck].map(card => {
+    const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <Card key={card.id} currentCard={card} />
+        <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
+          {deck}
+        </section>
       )
     })
 
+    return (
+      <div>
+        {deckNames}
+        {this.showCard()}
+      </div>
+    )
   }
-
-  return (
-    <div>
-      {deckNames}
-      <div className='hidden'></div>
-    </div>
-
-  )
 }
