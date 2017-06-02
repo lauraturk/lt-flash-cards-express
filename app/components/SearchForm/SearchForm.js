@@ -31,6 +31,16 @@ export default class SearchForm extends Component {
     return !match ? {[this.state.deck]: [currentCard]} : currentDeck[this.state.deck].push(currentCard)
   }
 
+  showDefinitionOption () {
+    let $definitionButton = null
+
+    if(this.props.targetLanguage.target === 'es'){
+      $definitionButton = (<button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>)
+    }
+
+    return $definitionButton
+  }
+
   render() {
     return (
       <div className="search-tools-wrapper">
@@ -44,7 +54,8 @@ export default class SearchForm extends Component {
                onClick={(e) => {
                         e.preventDefault
                         return this.handleClick('translation')}}></input>
-        <button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>
+        {this.showDefinitionOption()}
+
 
         <ImageUploadContainer />
 

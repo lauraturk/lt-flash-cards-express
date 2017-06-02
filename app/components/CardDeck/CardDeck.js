@@ -10,13 +10,18 @@ export class CardDeck extends Component {
     super(props)
   }
 
-  componentShouldUpdate () {
-
+  shouldComponentUpdate (nextProps, nextState) {
+    const { controlState, deckControl } = this.props;
+    // check that nextcard, matcheddeck, and showdeck remain the same;
+    // && (nextProps.controlState.nextCard !== controlState.nextCard))
+    // nextProps.deckControl.showDeck !== deckControl.showDeck) && (nextProps.controlState.nextCard !== controlState.nextCard
+    console.log(!controlState.nextCard)
+    return (!controlState.nextCard)
   }
 
   chooseDeck (deckName) {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    const matchedDeck = Object.keys(this.currentDeck).find(deck => {return deck === deckName})
+    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
     showDeck(matchedDeck)
   }
 

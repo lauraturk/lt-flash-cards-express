@@ -31,6 +31,7 @@ export const defineWord = (inputWord) => {
     .then(responseObject => {
       return dispatch(createCard(inputWord, oedScrubber(responseObject)))
     })
+    .catch(error => console.log(error, 'in actions'))
   }
 }
 
