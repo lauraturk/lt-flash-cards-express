@@ -1,14 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import * as icon from '../../assets/svg-icons'
 
 export const Home = () => {
   return (
     <section className="welcome-msg">
       <ul>
-        <li>Step 1: Choose A Language to Learn {icon.gearIcon}</li>
-        <li>Step 1: Get Started Searching for Words {icon.searchIcon}</li>
-        <li>Step 2: Found a good one? Add it to an existing deck or create a new deck {icon.cardIcon}</li>
-        <li>Step 3: Click a deck to practice your new found words</li>
+        <Link className="welcome-link" to='/settings'>{icon.gearIcon}Choose A Language to Learn</Link>
+        <Link className="welcome-link" to='/search'>{icon.searchIcon}Search for Words</Link>
+        <Link className="welcome-link" to='/flashcards'>{icon.cardIcon}Make a flashcards to practice</Link>
       </ul>
     </section>
   )

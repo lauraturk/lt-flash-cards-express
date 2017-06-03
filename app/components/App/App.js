@@ -14,10 +14,10 @@ export const App = () => {
 
   return (
     <main className="page-wrapper">
-      {citiesArray.filter((city, index) => index < 4)}
+      {citiesArray.filter((city, index) => index <= 4)}
+      <NavBar />
       <div className="app-wrapper">
-        <NavBar />
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/settings" component={SettingsFormContainer} />
         <Route path="/search" component={SearchFormContainer} />
         <Route path="/flashcards" component={CardDeckContainer} />
