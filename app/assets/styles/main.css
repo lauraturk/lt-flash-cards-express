@@ -14,6 +14,10 @@ select {
   -webkit-appearance: none;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 body {
   background-color: #A7DAB6 ;
   font-family: sans-serif;
@@ -161,7 +165,21 @@ ul {
 	z-index: -1;
 }
 
-.textsearch-input input[type="text"] {
+.textsearch-input input[type='text'] {
  background-color: inherit;
  border: none;
 }
+
+.textsearch-input input[type='submit'] {
+  background-color: inherit;
+  border-bottom: 1px solid #D62970;
+}
+
+.textsearch-input input[type='submit']:hover {
+  background-color: #FC7AB5;
+}
+
+/*.textsearch-input:active >
+.textsearch-input input[type='submit'] {
+  color: blue;
+}*/
