@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SettingsFormContainer from '../../containers/SettingsFormContainer'
+import CardContainer from '../../containers/CardContainer'
 import ImageUploadContainer from '../../containers/ImageUploadContainer'
 
 export default class SearchForm extends Component {
@@ -12,7 +13,6 @@ export default class SearchForm extends Component {
   }
 
   componentDidMount() {
-    this.props.populateLanguages()
   }
 
   handleChange(e, stateInfo) {
@@ -65,6 +65,8 @@ export default class SearchForm extends Component {
                  onChange={(e) => this.handleChange(e, 'deck')}></input>
           <button onClick={() => this.props.addCard(this.createDeck())}>Add Card</button>
         </div>
+        <CardContainer />
+
       </div>
     )
   }
