@@ -9,6 +9,10 @@ section {
 
 /* global */
 
+select {
+  -webkit-appearance: none;
+}
+
 body {
   background-color: #A7DAB6 ;
   font-family: sans-serif;
@@ -24,7 +28,8 @@ body {
   max-width: 100%;
 }
 
-.page-wrapper, .app-wrapper {
+.page-wrapper,
+.app-wrapper {
   background-color: #F6FDF8;
   text-align: center;
   padding: 20px;
@@ -44,9 +49,16 @@ body {
   strokeWidth: 2;
 }
 
+.directions-display {
+  font-size: 80%;
+  color: #D62970;
+  margin: 2px;
+}
+
 /* icons */
 
-.city-icons, .nav-icon {
+.city-icons,
+.nav-icon {
   width: 10%;
   height: 10%;
   margin: 10px 20px 5px 20px;
@@ -104,6 +116,18 @@ ul {
 .language-menu {
   height: 50px;
   font-family: sans-serif;
+  font-size: 100%;
   font-weight: 100;
-  width: 100px;
+  background-color: #E0FAE8;
+  margin-left: 10px;
+  padding: 10px 25px;
+  text-align: center;
 }
+
+.settings-icon,
+.language-menu {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* search form */

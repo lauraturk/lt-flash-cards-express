@@ -12,9 +12,6 @@ export default class SearchForm extends Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   handleChange(e, stateInfo) {
     this.setState({[stateInfo]: e.target.value})
   }

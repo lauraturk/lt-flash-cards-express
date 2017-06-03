@@ -4,11 +4,6 @@ import * as icon from '../../assets/svg-icons'
 export const SettingsForm = (props) => {
   const { languages, selectTargetLanguage, targetLanguage } = props
 
-  const languageOptions = languages.map((language) => {
-    return (
-      <option key={language.language}>{language.name}</option>
-    )
-  })
 
   const handleLanguageChange = ( languageChoice ) => {
     const selectedLanguage = languages.find((lang) => {
@@ -18,19 +13,27 @@ export const SettingsForm = (props) => {
   }
 
   const showTargetLanguage = () => {
-    if (languages.length){
+    if(languages.length) {
       const showLanguage = languages.find(language => {
         return language.language === targetLanguage.target
       })
-      return (<div className="targetLanguage">{icon.selectIcon}{showLanguage.name}</div>)
+      return showLanguage.name
     }
   }
 
+  const languageOptions = languages.map((language) => {
+    return (
+      <option key={language.language}>{language.name}</option>
+    )
+  })
 
   return (
     <div className="settings-form-wrapper">
-      {showTargetLanguage()}
-      <select className="language-menu" name="To:" onChange={(e) => handleLanguageChange(e.target.value)}>
+      <p className="directions-display">translate to:</p>
+      {icon.changeIcon}
+      <select className="language-menu"
+              value={showTargetLanguage()}
+              onChange={(e) => handleLanguageChange(e.target.value)}>
         {languageOptions}
       </select>
     </div>
