@@ -48,7 +48,6 @@ export default class SearchForm extends Component {
 
   render() {
     const {currentDeck} = this.props
-    console.log(currentDeck)
 
     return (
       <div className="search-tools-wrapper">

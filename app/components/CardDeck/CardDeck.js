@@ -10,8 +10,10 @@ export class CardDeck extends Component {
 
   chooseDeck (deckName) {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    console.log(currentDeck, deckName)
     const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
     deckControl.matchedDeck = matchedDeck;
+
     showDeck(matchedDeck)
     nextCard(deckControl, currentDeck)
   }
@@ -33,7 +35,7 @@ export class CardDeck extends Component {
   cardCounter (deckName) {
     const { currentDeck } = this.props
 
-    const chosenDeck = Object.keys(currentDeck).find(deck =>{
+    const chosenDeck = Object.keys(currentDeck).find((deck) =>{
       return deck === deckName
     })
     return (<span className="deck-counter">{currentDeck[chosenDeck].length}</span>)
@@ -44,8 +46,10 @@ export class CardDeck extends Component {
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
-          {deck}
+        <section>
+          <div key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
+            {deck}
+          </div>
           {this.cardCounter(deck)}
         </section>
       )
