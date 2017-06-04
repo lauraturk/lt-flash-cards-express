@@ -10,7 +10,6 @@ export class CardDeck extends Component {
 
   chooseDeck (deckName) {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    console.log(currentDeck, deckName)
     const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
     deckControl.matchedDeck = matchedDeck;
 

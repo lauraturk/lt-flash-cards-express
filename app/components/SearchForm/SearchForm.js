@@ -23,10 +23,9 @@ export default class SearchForm extends Component {
     this.clearState('q')
   }
 
-  createDeck() {
-    const { currentDeck, currentCard } = this.props
-    let match = Object.keys(currentDeck).find(key => key === this.state.deck)
-    return !match ? {[this.state.deck]: [currentCard]} : currentDeck[this.state.deck].push(currentCard)
+  handleDeck() {
+    const { addCard, currentDeck, currentCard } = this.props
+    addCard(this.state.deck, currentDeck, currentCard)
     this.clearState('deck')
   }
 
@@ -47,7 +46,7 @@ export default class SearchForm extends Component {
   }
 
   render() {
-    const {currentDeck} = this.props
+    const {currentDeck, currentCard} = this.props
 
     return (
       <div className="search-tools-wrapper">
@@ -85,7 +84,7 @@ export default class SearchForm extends Component {
               })
             }
           </datalist>
-          <button onClick={() => this.props.addCard(this.createDeck())}>
+          <button onClick={() => this.handleDeck()}>
             {icon.addIcon}
             <span className="directions-display">SAVE YOUR CARD</span>
           </button>

@@ -82,10 +82,12 @@ export const cancelCard = () => {
   }
 }
 
-export const addCard = (deckName) => {
+export const addCard = (deckName, currentDeck, currentCard) => {
   return {
     type: 'ADD_CARD',
     deckName,
+    currentDeck,
+    currentCard
   }
 }
 
