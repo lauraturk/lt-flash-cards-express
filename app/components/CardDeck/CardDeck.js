@@ -30,6 +30,15 @@ export class CardDeck extends Component {
     return $chosenCard
   }
 
+  cardCounter (deckName) {
+    const { currentDeck } = this.props
+
+    const chosenDeck = Object.keys(currentDeck).find(deck =>{
+      return deck === deckName
+    })
+    return (<span className="deck-counter">{currentDeck[chosenDeck].length}</span>)
+  }
+
   render() {
     const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
 
@@ -37,6 +46,7 @@ export class CardDeck extends Component {
       return (
         <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
           {deck}
+          {this.cardCounter(deck)}
         </section>
       )
     })

@@ -25,11 +25,18 @@ export const translateWord = (inputWord, targetLanguage) => {
   }
 }
 
-export const defineWord = (inputWord) => {
+export const defineWord = (inputWord, targetLanguage) => {
   return (dispatch) => {
-    return definitionsFetch(inputWord)
+    return translationFetch(inputWord, targetLanguage)
     .then(responseObject => {
-      return dispatch(createCard(inputWord, oedScrubber(responseObject)))
+    let translatedWord = responseObject.data.translations[0].translatedText
+    let sourceLang = responseObject.data.translations[0].detectedSourceLanguage
+    console.log(responseObject)
+    return sourceLang === targetLanguage ? definitionsFetch(inputWord) : definitionsFetch(translatedWord)
+      // return definitionsFetch(translatedWord)
+    })
+    .then(responseObject => {
+      return dispatch(createCard(responseObject.results[0].id, oedScrubber(responseObject)))
     })
     .catch(error => console.log(error, 'in actions'))
   }

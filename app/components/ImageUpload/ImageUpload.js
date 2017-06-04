@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Word } from '../Word/Word'
+import * as icon from '../../assets/svg-icons'
 
 export default class ImageUpload extends Component {
   constructor() {
@@ -37,34 +38,69 @@ export default class ImageUpload extends Component {
     createTranslationCard({'q' : e.target.innerText}, targetLanguage)
   }
 
+  handleClear() {
+    const { clearWords } = this.props
+    clearWords()
+    this.setState({
+      file: '',
+      imagePreviewUrl: '',
+    })
+  }
+
   render() {
     const { findImageWords, foundWords, translateWord } = this.props
     const {imagePreviewUrl} = this.state
 
+    const iconStyle = {
+      backgroundImage: icon.pictureIcon,
+    }
+
     let $foundWords = null
     let $imagePreview = null
+    let $findWordsButton = null
+    let $clearWordsButton = null
 
-    if (foundWords) {
-      $foundWords = foundWords.map((word, index) => {
-        return (
-          <Word key={index} word={word} handleWord={this.handleWordSelect.bind(this)} />
-        )
-      })
+    if (foundWords.length) {
+      $foundWords =
+        <div className="found-words">
+          {foundWords.map((word, index) => {
+            return (
+            <Word key={index} word={word} handleWord={this.handleWordSelect.bind(this)} />
+          )
+        })}
+        </div>
+
+      $clearWordsButton =
+        <button onClick={this.handleClear.bind(this)}>
+          {icon.cancelIcon}
+          <span className="directions-display">CLEAR ALL</span>
+        </button>
     }
 
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} style={{width: 200, height: 100}} />)
+      $imagePreview =
+        (<img src={imagePreviewUrl} style={{width: 300, display: 'block'}} />)
+
+      $findWordsButton =
+        <button onClick={this.handleWordSearch.bind(this)}>
+          {icon.searchIcon}
+          <span className="directions-display">FIND WORDS</span>
+        </button>
     }
 
     return (
-      <section>
-        <input type="file"
-               accept="image/*"
-               onChange={(e) => {return this.handleFiles(e)}}></input>
+      <section className="image-upload-wrapper">
+        <label className="picture-upload">
+          <input name="file"
+            type="file"
+            accept="image/*"
+            onChange={(e) => {return this.handleFiles(e)}}/>
+          {icon.pictureIcon}
+        </label>
         {$imagePreview}
-        <button onClick={this.handleWordSearch.bind(this)}>Find Words</button>
+        {$findWordsButton}
         {$foundWords}
-        <button onClick={this.props.clearWords}>Clear Words</button>
+        {$clearWordsButton}
       </section>
     )
   }

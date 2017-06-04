@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch) => {
     createTranslationCard: (inputWord, targetLanguage) => {
       dispatch(translateWord(inputWord, targetLanguage))
     },
-    createDefinitionCard: (inputWord) => {
-      dispatch(defineWord(inputWord))
+    createDefinitionCard: (inputWord, targetLanguage) => {
+      dispatch(defineWord(inputWord, targetLanguage))
     },
     addCard : (deckName, card) => {
       dispatch(addCard(deckName, card))

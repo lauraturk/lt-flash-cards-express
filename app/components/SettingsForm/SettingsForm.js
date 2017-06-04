@@ -29,7 +29,7 @@ export const SettingsForm = (props) => {
 
   return (
     <div className="settings-form-wrapper">
-      <p className="directions-display">translate to:</p>
+      <p className="directions-display">TRANSLATE TO</p>
       {icon.changeIcon}
       <select className="language-menu"
               value={showTargetLanguage()}
