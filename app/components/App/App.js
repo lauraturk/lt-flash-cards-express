@@ -1,17 +1,28 @@
 import React from 'react'
-import { Route, Link, NavLink } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import SearchFormContainer from '../../containers/SearchFormContainer'
-import CardContainer from '../../containers/CardContainer'
 import CardDeckContainer from '../../containers/CardDeckContainer'
-import { NavBar } from '../NavBar/NavBar'
+import SettingsFormContainer from '../../containers/SettingsFormContainer'
+import NavBar from '../NavBar/NavBar'
+import { Home } from '../Home/Home'
+import {citiesArray} from '../../assets/city-icons'
+
 
 export const App = () => {
+
+  ////randomizeCities
+
   return (
-    <div className="page-wrapper">
+    <main className="page-wrapper">
+      {citiesArray.filter((city, index) => index <= 4)}
       <NavBar />
-      <SearchFormContainer />
-      <CardContainer />
-      <CardDeckContainer />
-    </div>
+      <div className="app-wrapper">
+        <Route exact path="/" component={Home} />
+        <Route path="/settings" component={SettingsFormContainer} />
+        <Route path="/search" component={SearchFormContainer} />
+        <Route path="/flashcards" component={CardDeckContainer} />
+      </div>
+      {citiesArray.filter((city, index) => index > 4)}
+    </main>
   )
 }

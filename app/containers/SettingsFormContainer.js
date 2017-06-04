@@ -4,7 +4,8 @@ import { selectLanguage } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
-    languages : state.languages
+    languages: state.languages,
+    targetLanguage: state.targetLanguage
   }
 }
 
