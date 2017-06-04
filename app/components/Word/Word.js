@@ -7,7 +7,7 @@ export const Word = ( { word, handleWord }) => {
   }
 
   return (
-    <div onClick={(e) => handleClick(e)}>{word}</div>
+    <div className="word" onClick={(e) => handleClick(e)}>{word}</div>
   )
 
 }

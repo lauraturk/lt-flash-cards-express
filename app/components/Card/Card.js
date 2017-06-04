@@ -9,21 +9,20 @@ export const Card = (props) => {
     let $answer = null
 
     if(!deckControl.showDeck){
-      $answer = (<div>{answerInfo}</div>)
+      $answer = (<div className="card-info">{answerInfo}</div>)
     }
 
     if(!control.cardBackHidden){
-      $answer = (<div>{answerInfo}</div>)
+      $answer = (<div className="card-info">{answerInfo}</div>)
     }
     return $answer
   }
 
   return (
     <div className="card">
-      <div>{currentCard.frontCard}</div>
+      <div className="card-info">{currentCard.frontCard}</div>
       {showAnswer(controlState, currentCard.backCard)}
       <button onClick={() => cancelCard()}>{icon.cancelIcon}</button>
-
     </div>
   )
 }

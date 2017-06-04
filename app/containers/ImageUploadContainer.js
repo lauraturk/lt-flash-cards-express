@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(translateWord(inputWord, targetLanguage))
     },
 
-    createDefinitionCard: (inputWord) => {
-      dispatch(defineWord(inputWord))
+    createDefinitionCard: (inputWord, targetLanguage) => {
+      dispatch(defineWord(inputWord, targetLanguage))
     },
 
   }

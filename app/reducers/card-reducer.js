@@ -1,6 +1,6 @@
 const initialState = {
   'id' : '',
-  'frontCard': 'enter a word',
+  'frontCard': '',
   'backCard' : ''
 }
 export const currentCard = (state = initialState, action) => {
