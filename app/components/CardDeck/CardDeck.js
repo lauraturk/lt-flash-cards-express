@@ -9,21 +9,20 @@ export class CardDeck extends Component {
   }
 
   chooseDeck (deckName) {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
-    deckControl.matchedDeck = matchedDeck;
+    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
+    let tempDeckControl = Object.assign({}, deckControl, {matchedDeck: deckName})
 
-    showDeck(matchedDeck)
-    nextCard(deckControl, currentDeck)
+    showDeck(deckName, currentDeck)
+    nextCard(tempDeckControl, currentDeck)
   }
 
   showCard () {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
     let $chosenCard = null
     if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={controlState.card} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
+          <Card currentCard={cardControl.card} cardControl={cardControl} deckControl={deckControl} cancelCard={deleteCard} />
           <ControlsContainer />
         </section>
       )
@@ -41,7 +40,7 @@ export class CardDeck extends Component {
   }
 
   render() {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (

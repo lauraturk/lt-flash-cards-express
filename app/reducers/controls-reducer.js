@@ -14,7 +14,7 @@ const makeRandomCard = (deck, deckControl) => {
   return deck[deckControl.matchedDeck][cardRandomizer(0, deck[deckControl.matchedDeck].length)]
 }
 
-export const controlState = (state = initialState, action) => {
+export const cardControl = (state = initialState, action) => {
   switch(action.type){
 
     case 'SHOW_ANSWER':

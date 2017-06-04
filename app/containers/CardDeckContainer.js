@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   return {
     currentDeck : state.deck,
     currentCard : state.currentCard,
-    controlState : state.controlState,
+    cardControl : state.cardControl,
     deckControl : state.deckControl
   }
 }
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(deleteCard(deckName, cardId))
     },
 
-    showDeck: (deckName) => {
-      dispatch(showDeck(deckName))
+    showDeck: (deckName, currentDeck) => {
+      dispatch(showDeck(deckName, currentDeck))
     },
 
     nextCard: (deckControl, deck) => {

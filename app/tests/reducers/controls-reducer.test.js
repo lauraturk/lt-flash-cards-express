@@ -1,4 +1,4 @@
-import { controlState } from '../../reducers/controls-reducer'
+import { cardControl } from '../../reducers/controls-reducer'
 
 describe('controls reducer', () => {
   const initialState = {
@@ -7,7 +7,7 @@ describe('controls reducer', () => {
   }
 
   it('returns the intial state on default', () => {
-    expect(controlState(undefined, {})).toEqual(initialState)
+    expect(cardControl(undefined, {})).toEqual(initialState)
   })
 
   it('shows the answer on the card', () => {
@@ -19,7 +19,7 @@ describe('controls reducer', () => {
       cardBackHidden: false,
       card: {}
     }
-    expect(controlState(initialState, action)).toEqual(expectedState)
+    expect(cardControl(initialState, action)).toEqual(expectedState)
   })
 
   it('randomizes next card in deck', () => {
@@ -34,6 +34,6 @@ describe('controls reducer', () => {
       card: {id: 'XYZ', 'frontCard': 'house', 'backCard': 'casa'}
     }
 
-    expect(controlState(initialState, action)).toEqual(expectedState)
+    expect(cardControl(initialState, action)).toEqual(expectedState)
   })
 })
