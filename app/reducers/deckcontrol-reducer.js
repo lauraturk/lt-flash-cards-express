@@ -14,10 +14,10 @@ const matchDeck = (deckName, currentDeck) => {
 export const deckControl = (state = initialState, action) => {
   switch(action.type){
     case 'SHOW_DECK':
-      return Object.assign({}, state, {
+      return {
         matchedDeck: matchDeck(action.deckName, action.currentDeck),
         showDeck: true
-    })
+      }
 
     default:
       return state
