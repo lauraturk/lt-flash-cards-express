@@ -9,7 +9,7 @@ export class CardDeck extends Component {
   }
 
   chooseDeck (deckName) {
-    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
+    const { currentDeck, showDeck, deckControl, nextCard } = this.props
     let tempDeckControl = Object.assign({}, deckControl, {matchedDeck: deckName})
 
     showDeck(deckName, currentDeck)
@@ -17,12 +17,12 @@ export class CardDeck extends Component {
   }
 
   showCard () {
-    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
+    const { cardControl, deckControl } = this.props
     let $chosenCard = null
     if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={cardControl.card} cardControl={cardControl} deckControl={deckControl} cancelCard={deleteCard} />
+          <Card currentCard={cardControl.card} cardControl={cardControl} deckControl={deckControl} />
           <ControlsContainer />
         </section>
       )
@@ -40,13 +40,13 @@ export class CardDeck extends Component {
   }
 
   render() {
-    const { currentDeck, deleteCard, cardControl, showDeck, deckControl, nextCard } = this.props
+    const { currentDeck } = this.props
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
         <section>
           <div key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
-            {deck}
+            <h2 className="deck-name">{deck}</h2>
           </div>
           {this.cardCounter(deck)}
         </section>
@@ -54,7 +54,7 @@ export class CardDeck extends Component {
     })
 
     return (
-      <div>
+      <div className="decks">
         {deckNames}
         {this.showCard()}
       </div>

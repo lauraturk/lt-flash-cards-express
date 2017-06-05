@@ -13,10 +13,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteCard : (deckName, cardId) => {
-      dispatch(deleteCard(deckName, cardId))
-    },
-
     showDeck: (deckName, currentDeck) => {
       dispatch(showDeck(deckName, currentDeck))
     },
