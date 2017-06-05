@@ -74,28 +74,35 @@ export default class SearchForm extends Component {
           <ImageUploadContainer />
         </div>
 
-        <SettingsFormContainer />
+        <div className="decktools-settings">
+          <SettingsFormContainer />
 
-        <CardContainer />
-        <div className="deck-tools">
-          <label>CHOOSE A DECK
-          <input list="deck"
-                 type="text"
-                 value={this.state.deck}
-                 onChange={(e) => this.handleChange(e, 'deck')}/>
-          </label>
-          <datalist id="deck">
-            {Object.keys(currentDeck).map((deck, index) => {
-              return (<option key={index} value={deck} />)
-              })
-            }
-          </datalist>
-          <button onClick={() => this.handleDeck()}>
-            {icon.addIcon}
-            <span className="directions-display">SAVE YOUR CARD</span>
-          </button>
+          <div className="deck-tools">
+            <label>
+              <span className="directions-display">CHOOSE A DECK</span>
+              {icon.cardIcon}
+              <input className="deck-list-dropdown"
+                     list="deck"
+                     type="text"
+                     value={this.state.deck}
+                     onChange={(e) => this.handleChange(e, 'deck')}/>
+              </label>
+              <datalist id="deck">
+                {Object.keys(currentDeck).map((deck, index) => {
+                  return (<option key={index} value={deck} />)
+                })
+              }
+            </datalist>
+            <button onClick={() => this.handleDeck()}>
+              {icon.addIcon}
+              <span className="directions-display">SAVE YOUR CARD</span>
+            </button>
+          </div>
+
         </div>
 
+
+        <CardContainer />
       </div>
     )
   }

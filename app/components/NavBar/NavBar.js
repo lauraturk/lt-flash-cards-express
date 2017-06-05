@@ -7,12 +7,13 @@ const NavBar = (props) => {
 
   return (
     <nav className="nav-bar">
+      <h1 className="app-name">FLASH LINGUA</h1>
       <NavLink to='/search'
                activeClassName='selected'
                className='icon'>
         {icon.searchIcon}
       </NavLink>
-      
+
       <NavLink to='/flashcards'
                activeClassName='selected'
                className='icon'>
