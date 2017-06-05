@@ -6,8 +6,8 @@ export const Home = () => {
   return (
     <section className="welcome-msg">
       <ul>
-        <Link className="welcome-link" to='/search'>{icon.searchIcon}Search for Words</Link>
-        <Link className="welcome-link" to='/flashcards'>{icon.cardIcon}Make flashcards to practice</Link>
+        <Link className="welcome-link" to='/search'>{icon.searchIcon}SEARCH FOR WORDS</Link>
+        <Link className="welcome-link" to='/flashcards'>{icon.cardIcon}MAKE FLASHCARDS TO PRACTICE</Link>
       </ul>
     </section>
   )

@@ -39,7 +39,12 @@ export default class SearchForm extends Component {
     let $definitionButton = null
 
     if(this.props.targetLanguage.target === 'es'){
-      $definitionButton = (<button onClick={() => {return this.handleClick('definition')}}>Subete de nivel</button>)
+      $definitionButton = (
+        <button onClick={() => {
+          return this.handleClick('definition')}}>
+          Subete de nivel
+        </button>
+      )
     }
 
     return $definitionButton

@@ -1,11 +1,12 @@
 import React from 'react'
 import { mount  } from 'enzyme'
+import configureMockStore from 'redux-mock-store'
 
 import CardContainer from '../../containers/CardContainer'
 import Card from '../../components/Card/Card'
 import { Provider } from 'react-redux'
 
-const mockStore = configureMockStore({
+const mockStore = configureMockStore()({
   currentCard: {id: 'XYZ', frontCard: 'casa', backCard: 'house'},
   cardControl: {cardBackHidden: true, card: {}},
   deckControl: {matchedDeck: "", showDeck: false}
@@ -21,7 +22,7 @@ const setup = () => {
                           </Provider>
                           )
 
-  const Component = Container.find(Card)
+  const Component = Container.find('Card')
 
   return {
     Container,
@@ -30,14 +31,17 @@ const setup = () => {
 
 }
 
-describe.skip('testing components', () => {
-  describe.skip('card component', () => {
+describe('card container components', () => {
+  const { Component, Container } = setup()
 
-    it.skip('should render a card', () => {
-      const { Component } = setup()
+  it('should render a card', () => {
 
-      expect(Component.find('.card').length).toEqual(1)
-      expect(Component.length).toEqual(1)
-    })
+    expect(Component.find('.card').length).toEqual(1)
+    expect(Component.length).toEqual(1)
+  })
+
+  it('pass the action creators', () => {
+
+    expect(Object.keys(Component.props())).toContain('cancelCard')
   })
 })
