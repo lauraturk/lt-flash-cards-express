@@ -136,6 +136,11 @@ margin: 0 auto;
   fill: black;
 }
 
+.title-link {
+  text-decoration: none;
+  color: black;
+}
+
 /* home */
 
 ul {
