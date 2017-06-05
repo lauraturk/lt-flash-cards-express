@@ -22,12 +22,12 @@ const mapDispatchToProps = (dispatch) => {
     createDefinitionCard: (inputWord, targetLanguage) => {
       dispatch(defineWord(inputWord, targetLanguage))
     },
-    addCard : (deckName, card) => {
-      dispatch(addCard(deckName, card))
+    addCard : (deckName, currentDeck, currentCard) => {
+      dispatch(addCard(deckName, currentDeck, currentCard))
     },
 
-    cancelCard : (card) => {
-      dispatch(cancelCard(card))
+    cancelCard : () => {
+      dispatch(cancelCard())
     }
   }
 }

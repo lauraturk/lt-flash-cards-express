@@ -13,6 +13,7 @@ export const loadLanguageList = () => {
     .then(responseObject => {
       return dispatch(addLanguages(responseObject.data.languages))
     })
+    .catch(error => console.log(error, 'failed in actions'))
   }
 }
 
@@ -22,6 +23,7 @@ export const translateWord = (inputWord, targetLanguage) => {
     .then(responseObject => {
       return dispatch(createCard(inputWord.q, responseObject.data.translations[0].translatedText))
     })
+    .catch(error => console.log(error, 'failed in actions'))
   }
 }
 
@@ -29,16 +31,14 @@ export const defineWord = (inputWord, targetLanguage) => {
   return (dispatch) => {
     return translationFetch(inputWord, targetLanguage)
     .then(responseObject => {
-    let translatedWord = responseObject.data.translations[0].translatedText
-    let sourceLang = responseObject.data.translations[0].detectedSourceLanguage
-    console.log(responseObject)
+      let translatedWord = responseObject.data.translations[0].translatedText
+      let sourceLang = responseObject.data.translations[0].detectedSourceLanguage
     return sourceLang === targetLanguage ? definitionsFetch(inputWord) : definitionsFetch(translatedWord)
-      // return definitionsFetch(translatedWord)
     })
     .then(responseObject => {
       return dispatch(createCard(responseObject.results[0].id, oedScrubber(responseObject)))
     })
-    .catch(error => console.log(error, 'in actions'))
+    .catch(error => console.log(error, 'failed in actions'))
   }
 }
 
@@ -74,25 +74,18 @@ export const createCard = (inputWord, translatedWord) => {
   }
 }
 
-export const cancelCard = (card) => {
+export const cancelCard = () => {
   return {
     type: 'CANCEL_CARD',
-    card
   }
 }
 
-export const addCard = (deckName, card) => {
+export const addCard = (deckName, currentDeck, currentCard) => {
   return {
     type: 'ADD_CARD',
     deckName,
-  }
-}
-
-export const deleteCard = (deckName, cardId) => {
-  return {
-    type: 'DELETE_CARD',
-    deckName,
-    cardId
+    currentDeck,
+    currentCard
   }
 }
 
@@ -109,10 +102,11 @@ export const clearWords = () => {
   }
 }
 
-export const showDeck = (deckName) => {
+export const showDeck = (deckName, currentDeck) => {
   return {
     type: 'SHOW_DECK',
-    deckName
+    deckName,
+    currentDeck
   }
 }
 
@@ -129,29 +123,3 @@ export const nextCard = (deckControl, deck) => {
     deck
   }
 }
-
-export const prevCard = () => {
-  return {
-    type: 'PREV_CARD'
-  }
-}
-
-export const signInUser = (userId) => {
-  return {
-    type: 'SIGN_IN_USER',
-    userId,
-  }
-}
-
-export const signOutUser = () => {
-  return {
-    type: 'SIGN_OUT_USER'
-  }
-}
-
-// export const addUserDecks = (userDecks) => {
-//   return {
-//     type: 'LOAD_INITIAL_FAVS',
-//     userDecks
-//   }
-// }

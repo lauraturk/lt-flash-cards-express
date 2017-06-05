@@ -7,11 +7,10 @@ export const currentCard = (state = initialState, action) => {
   switch (action.type) {
     case 'CREATE_CARD':
       const newCard = {'id': action.id, 'frontCard': action.inputWord, 'backCard': action.translatedWord}
-      return Object.assign({}, state, newCard)
+      return newCard
 
     case 'CANCEL_CARD':
-      const reset = { 'id': '', 'frontCard': 'enter a word', 'backCard' : ''}
-      return Object.assign({}, state, reset)
+      return initialState
 
       default:
         return state

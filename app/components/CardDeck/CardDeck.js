@@ -9,20 +9,20 @@ export class CardDeck extends Component {
   }
 
   chooseDeck (deckName) {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
-    const matchedDeck = Object.keys(currentDeck).find(deck => {return deck === deckName})
-    deckControl.matchedDeck = matchedDeck;
-    showDeck(matchedDeck)
-    nextCard(deckControl, currentDeck)
+    const { currentDeck, showDeck, deckControl, nextCard } = this.props
+    let tempDeckControl = Object.assign({}, deckControl, {matchedDeck: deckName})
+
+    showDeck(deckName, currentDeck)
+    nextCard(tempDeckControl, currentDeck)
   }
 
   showCard () {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const { cardControl, deckControl } = this.props
     let $chosenCard = null
     if(deckControl.showDeck) {
       $chosenCard = (
         <section>
-          <Card currentCard={controlState.card} controlState={controlState} deckControl={deckControl} cancelCard={deleteCard} />
+          <Card currentCard={cardControl.card} cardControl={cardControl} deckControl={deckControl} />
           <ControlsContainer />
         </section>
       )
@@ -33,26 +33,28 @@ export class CardDeck extends Component {
   cardCounter (deckName) {
     const { currentDeck } = this.props
 
-    const chosenDeck = Object.keys(currentDeck).find(deck =>{
+    const chosenDeck = Object.keys(currentDeck).find((deck) =>{
       return deck === deckName
     })
     return (<span className="deck-counter">{currentDeck[chosenDeck].length}</span>)
   }
 
   render() {
-    const { currentDeck, deleteCard, controlState, showDeck, deckControl, nextCard } = this.props
+    const { currentDeck } = this.props
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <section key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
-          {deck}
+        <section>
+          <div key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
+            <h2 className="deck-name">{deck}</h2>
+          </div>
           {this.cardCounter(deck)}
         </section>
       )
     })
 
     return (
-      <div>
+      <div className="decks">
         {deckNames}
         {this.showCard()}
       </div>

@@ -8,8 +8,8 @@ export const Controls = (props) => {
 
   return (
     <section className="controls-wrapper">
-      <button className="show-answer" onClick={() => showAnswer()}>show answer</button>
-      <button className="next" onClick={() => nextCard(deckControl, deck)}>shuffle</button>
+      <button className="show-answer" onClick={() => showAnswer()}>SHOW ANSWER</button>
+      <button className="next" onClick={() => nextCard(deckControl, deck)}>SHUFFLE</button>
     </section>
   )
 }

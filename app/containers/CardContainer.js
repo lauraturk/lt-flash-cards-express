@@ -6,7 +6,7 @@ import { cancelCard } from '../actions/index'
 const mapStateToProps = (state) => {
   return {
     currentCard : state.currentCard,
-    controlState : state.controlState,
+    cardControl : state.cardControl,
     deckControl : state.deckControl
   }
 }
