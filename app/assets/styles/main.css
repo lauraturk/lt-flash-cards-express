@@ -12,19 +12,29 @@ section {
 
 select {
   -webkit-appearance: none;
+  font-family: 'Bubbler One', sans-serif;
 }
 
 input {
   -webkit-appearance: none;
+  font-family: 'Bubbler One', sans-serif;
+  display: block;
+}
+
+span {
+  font-family: 'Bubbler One', sans-serif;
 }
 
 body {
-  background-color: #A7DAB6 ;
-  font-family: sans-serif;
-  font-weight: 100;
+  background-color: #F6FDF8;
+  font-family: 'Bubbler One', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+button {
+  display: block;
 }
 
 #main {
@@ -33,21 +43,14 @@ body {
   max-width: 100%;
 }
 
-.page-wrapper {
-  margin: 0 0;
-  background-color: #F6FDF8;
-  text-align: center;
-}
-
 .app-wrapper {
   background-color: #F6FDF8;
   text-align: center;
   padding: 20px;
-  border-radius: 15px;
-  margin: 10px;
-  position: relative;
-  right: -17%;
-  width: 70%;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 99999;
+  height: 100%;
 }
 
 .hidden {
@@ -59,9 +62,10 @@ body {
 }
 
 .directions-display {
+  display: block;
   font-size: 80%;
-  color: #D62970;
-  margin: 2px 2px 2px 10px;
+  color: #FF715B;
+  margin: 2px;
   text-align: left;
 }
 
@@ -73,17 +77,17 @@ button, input[type='submit'] {
 /* icons */
 .city-icons {
   width: 10%;
-  margin: 10px 20px;
-  vertical-align: bottom;
+  max-height: 100px;
+  margin: 10px 30px;
 }
 
-.nav-icon,
 .card-icon,
 .settings-icon,
 .search-icon {
   display: block;
   max-width: 45px;
   max-height: 45px;
+  stroke: #4C5454;
 }
 
 .nav-icon g {
@@ -91,19 +95,45 @@ button, input[type='submit'] {
 }
 
 .nav-icon :hover {
-  stroke: #D62970;
+  stroke: #FF715B;
 }
 
 /* nav */
+.app-name {
+font-family: 'Bubbler One', sans-serif;
+font-size: 64px;
+margin: 0 auto;
+}
+
+.city-scape {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
 
 .nav-bar {
-  background-color: #A7DAB6;
-  position: fixed;
-  left: 0;
+  background-color: #1F9DBF;
+  background-image: url('../vintagemap.jpg');
+  background-size: cover;
+  background-blend-mode: color;
+  position: relative;
   top: 0;
-  bottom: 0;
-  max-width: 150px;
-  padding: 30px;
+  height: 110px;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+}
+
+.nav-icon {
+  max-width: 45px;
+  max-height: 45px;
+  display: inline-block;
+  vertical-align: bottom;
+  stroke: black;
+  fill: black;
 }
 
 /* home */
@@ -111,6 +141,10 @@ button, input[type='submit'] {
 ul {
   list-style: none;
   text-align: left;
+}
+
+ul svg {
+  padding: 10px;
 }
 
 .welcome-msg {
@@ -162,9 +196,10 @@ ul {
 }
 
 .search-tools-wrapper {
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .search-tools {
@@ -223,6 +258,10 @@ ul {
   width: 120px;
 }
 
+.decktools-settings {
+  text-align: center;
+}
+
 /* card */
 
 .card {
@@ -241,11 +280,20 @@ ul {
   width: 140px;
 }
 
-.deck-tools {
-
+.card-icon,
+.deck-list-dropdown {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .deck-counter {
   margin: 5px;
   color: #D62970;
+}
+
+@media (max-width: 770px) {
+  .search-tools-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 }
