@@ -7,7 +7,10 @@ const NavBar = (props) => {
 
   return (
     <nav className="nav-bar">
-      <h1 className="app-name">FLASH LINGUA</h1>
+      <NavLink to='/'
+               className="title-link">
+        <h1 className="app-name">FLASH LINGUA</h1>
+      </NavLink>
       <NavLink to='/search'
                activeClassName='selected'
                className='icon'>
