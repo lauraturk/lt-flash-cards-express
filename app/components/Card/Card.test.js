@@ -15,6 +15,19 @@ describe('card component', () => {
     expect(wrapper.find('.card').length).toEqual(1)
   })
 
+  it('should render the currentCard', () => {
+    const wrapper = shallow(<Card currentCard={{id: 'XYV',
+                                                frontCard: 'house',
+                                                backCard: 'casa'}}
+                                  cardControl={{cardBackHidden: true,
+                                                nextCard: false}}
+                                  deckControl={{showDeck: false,
+                                                matchedDeck: 'purple'}} />)
+
+    expect(wrapper.find('.card-info').length).toEqual(2)
+    expect(wrapper.find('.word-info').text()).toEqual('house')
+  })
+
   it('should render the answer in search form', () => {
     const wrapper = shallow(<Card currentCard={{id: 'XYV',
                                                 frontCard: 'house',

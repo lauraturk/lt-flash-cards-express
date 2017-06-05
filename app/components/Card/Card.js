@@ -20,7 +20,7 @@ export const Card = (props) => {
 
   return (
     <div className="card">
-      <div className="card-info">{currentCard.frontCard}</div>
+      <div className="card-info word-info">{currentCard.frontCard}</div>
       {showAnswer(currentCard.backCard)}
       <button onClick={() => cancelCard()}>{icon.cancelIcon}</button>
     </div>
