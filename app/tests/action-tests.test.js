@@ -140,7 +140,7 @@ describe('actions', () => {
   })
 })
 
-describe.skip('api fetches in actions', () => {
+describe('api fetches in actions', () => {
   const middlewares = [thunk]
   const mockStore = configureMockStore(middlewares)
 
@@ -151,17 +151,30 @@ describe.skip('api fetches in actions', () => {
     fetchMock.restore()
   })
 
-  it.skip('should fetch language list', () => {
-    const languageSet = languageListStub.data.languages
+  it('should fetch language list', () => {
+    mockFetchCalls()
 
-    const expectedAction = {
-      type: 'ADD_LANGUAGES',
-      languageSet
-    }
+    const expectedAction = [{languageSet: [...languageListStub.data.languages],
+                            type: 'ADD_LANGUAGES'}]
+
     const store = mockStore({languages: []})
 
     return store.dispatch(actions.loadLanguageList()).then(() => {
+      expect(store.getActions()).toEqual(expectedAction)
+    })
+  })
 
+  it.skip('should translate a word', () => {
+    mockFetchCalls()
+
+    const expectedAction = {type: 'CREATE_CARD',
+                            inputWord: '',
+                            translatedWord: '',
+                            id: ''}
+
+    const store = mockStore({currentCard: {}})
+
+    return store.dispatch(actions.translateWord({})).then(() => {
       expect(store.getActions()).toEqual(expectedAction)
     })
   })

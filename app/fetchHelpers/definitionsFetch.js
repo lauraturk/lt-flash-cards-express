@@ -5,5 +5,5 @@ export const definitionsFetch = (q) => {
       body: JSON.stringify({"data": q})
     })
     .then(response => response.json())
-    .catch(error => console.log(error, 'in definitionFetch'))
+    .catch(error => new Error('Choose a Different Word!'))
   }

@@ -62,7 +62,8 @@ export default class SearchForm extends Component {
             <input type="text"
                    value={this.state.q}
                    onChange={(e) => this.handleChange(e, 'q')} />
-            <button type="submit"
+            <button className="button-submit"
+                    type="submit"
                     onClick={(e) => {
                     return this.handleClick('translation')}}>
               {icon.searchIcon}
