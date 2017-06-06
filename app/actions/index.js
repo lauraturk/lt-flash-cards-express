@@ -37,6 +37,7 @@ export const defineWord = (inputWord, targetLanguage) => {
     return sourceLang === targetLanguage ? definitionsFetch(inputWord) : definitionsFetch(translatedWord)
     })
     .then(responseObject => {
+      debugger;
       return dispatch(createCard(responseObject.results[0].id, oedScrubber(responseObject)))
     })
     .catch(error => console.log(error, 'failed in actions'))
@@ -111,6 +112,12 @@ export const showDeck = (deckName, currentDeck) => {
     type: 'SHOW_DECK',
     deckName,
     currentDeck
+  }
+}
+
+export const hideDeck = () => {
+  return {
+    type: 'HIDE_DECK',
   }
 }
 

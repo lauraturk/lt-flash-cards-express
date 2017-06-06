@@ -6,8 +6,6 @@ export const Card = (props) => {
   const { currentCard, cancelCard, cardControl, deckControl } = props
 
   const showAnswer = (answerInfo) => {
-    // let $answer = null
-
     if(!deckControl.showDeck){
       return (<div className="card-info answer-info">{answerInfo}</div>)
     }
@@ -15,13 +13,14 @@ export const Card = (props) => {
     if(!cardControl.cardBackHidden){
       return (<div className="card-info answer-info">{answerInfo}</div>)
     }
-    return null
   }
-
+////const compareLanguages for card
   return (
     <div className="card">
+      <div>{currentCard.detectedSourceLanguage}</div>
       <div className="card-info word-info">{currentCard.frontCard}</div>
       {showAnswer(currentCard.backCard)}
+      <div>{currentCard.targetLanguage}</div>
       <button onClick={() => cancelCard()}>{icon.cancelIcon}</button>
     </div>
   )

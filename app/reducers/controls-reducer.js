@@ -19,7 +19,7 @@ export const cardControl = (state = initialState, action) => {
 
     case 'SHOW_ANSWER':
       return Object.assign({}, state, {
-        cardBackHidden: false,
+        cardBackHidden: !state.cardBackHidden,
       })
 
     case 'NEXT_CARD':

@@ -5,3 +5,6 @@ export const oedScrubber = (responseObject) => {
               .senses[0]
               .definitions
 }
+
+
+/////use reduce to get all the definitions then pass

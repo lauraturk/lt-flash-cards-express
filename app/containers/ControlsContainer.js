@@ -5,7 +5,8 @@ import { showAnswer, nextCard, prevCard } from '../actions/index'
 const mapStateToProps = (state) => {
   return {
     deck: state.deck,
-    deckControl: state.deckControl
+    deckControl: state.deckControl,
+    cardControl: state.cardControl
   }
 }
 
