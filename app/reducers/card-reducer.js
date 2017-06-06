@@ -1,12 +1,15 @@
 const initialState = {
-  'id' : '',
-  'frontCard': '',
-  'backCard' : ''
+  id: '',
+  frontCard: '',
+  backCard: '',
+  targetLanguage: '',
+  detectedSourceLanguage: '',
 }
 export const currentCard = (state = initialState, action) => {
   switch (action.type) {
     case 'CREATE_CARD':
-      const newCard = {'id': action.id, 'frontCard': action.inputWord, 'backCard': action.translatedWord}
+    console.log(action)
+    const newCard = Object.assign({}, state, action, delete action.type)
       return newCard
 
     case 'CANCEL_CARD':

@@ -5,10 +5,3 @@ export const oedScrubber = (responseObject) => {
               .senses[0]
               .definitions
 }
-
-
-// console.log(responseObject.results[0]
-//   .lexicalEntries[0]
-//   .entries[0]
-//   .senses[0]
-//   .examples);

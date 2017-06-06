@@ -6,16 +6,16 @@ export const Card = (props) => {
   const { currentCard, cancelCard, cardControl, deckControl } = props
 
   const showAnswer = (answerInfo) => {
-    let $answer = null
+    // let $answer = null
 
     if(!deckControl.showDeck){
-      $answer = (<div className="card-info answer-info">{answerInfo}</div>)
+      return (<div className="card-info answer-info">{answerInfo}</div>)
     }
 
     if(!cardControl.cardBackHidden){
-      $answer = (<div className="card-info answer-info">{answerInfo}</div>)
+      return (<div className="card-info answer-info">{answerInfo}</div>)
     }
-    return $answer
+    return null
   }
 
   return (

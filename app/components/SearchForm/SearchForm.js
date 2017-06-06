@@ -55,7 +55,6 @@ export default class SearchForm extends Component {
 
     return (
       <div className="search-tools-wrapper">
-
         <div className="search-tools">
           <label className="textsearch-input">
             {icon.pencilIcon}

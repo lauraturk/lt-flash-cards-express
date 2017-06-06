@@ -1,4 +1,3 @@
-const randomId = require('random-id')
 
 import { languagesFetch } from '../fetchHelpers/languagesFetch'
 import { translationFetch } from '../fetchHelpers/translationFetch'
@@ -6,6 +5,7 @@ import { definitionsFetch } from '../fetchHelpers/definitionsFetch'
 import { googleVisionFetch } from '../fetchHelpers/googleVisionFetch'
 import { oedScrubber } from '../fetchHelpers/oedScrubber'
 import { visionScrubber } from '../fetchHelpers/visionScrubber'
+import { translationScrubber } from '../fetchHelpers/translationScrubber'
 
 export const loadLanguageList = () => {
   return (dispatch) => {
@@ -21,7 +21,8 @@ export const translateWord = (inputWord, targetLanguage) => {
   return (dispatch) => {
     return translationFetch(inputWord, targetLanguage)
     .then(responseObject => {
-      return dispatch(createCard(inputWord.q, responseObject.data.translations[0].translatedText))
+      // cardObject = translationScrubber(inputWord, targetLanguage, responseObject)
+      return dispatch(createCard(translationScrubber(inputWord, targetLanguage, responseObject)))
     })
     .catch(error => console.log(error, 'failed in actions'))
   }
@@ -65,12 +66,15 @@ export const selectLanguage = (language) => {
   }
 }
 
-export const createCard = (inputWord, translatedWord) => {
+export const createCard = (cardObject) => {
+  const { frontCard, detectedSourceLanguage, backCard, targetLanguage, id } = cardObject
   return {
     type: 'CREATE_CARD',
-    inputWord,
-    translatedWord,
-    id: randomId(3)
+    frontCard,
+    detectedSourceLanguage,
+    backCard,
+    targetLanguage,
+    id
   }
 }
 
