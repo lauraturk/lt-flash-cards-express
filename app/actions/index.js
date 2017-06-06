@@ -5,7 +5,7 @@ import { definitionsFetch } from '../fetchHelpers/definitionsFetch'
 import { googleVisionFetch } from '../fetchHelpers/googleVisionFetch'
 import { oedScrubber } from '../fetchHelpers/oedScrubber'
 import { visionScrubber } from '../fetchHelpers/visionScrubber'
-import { translationScrubber } from '../fetchHelpers/translationScrubber'
+import { cardMaker } from '../fetchHelpers/cardMaker'
 
 export const loadLanguageList = () => {
   return (dispatch) => {
@@ -21,8 +21,8 @@ export const translateWord = (inputWord, targetLanguage) => {
   return (dispatch) => {
     return translationFetch(inputWord, targetLanguage)
     .then(responseObject => {
-      // cardObject = translationScrubber(inputWord, targetLanguage, responseObject)
-      return dispatch(createCard(translationScrubber(inputWord, targetLanguage, responseObject)))
+      // cardObject = cardMaker(inputWord, targetLanguage, responseObject)
+      return dispatch(createCard(cardMaker(inputWord, targetLanguage, responseObject)))
     })
     .catch(error => console.log(error, 'failed in actions'))
   }
@@ -36,9 +36,8 @@ export const defineWord = (inputWord, targetLanguage) => {
       let sourceLang = responseObject.data.translations[0].detectedSourceLanguage
     return sourceLang === targetLanguage ? definitionsFetch(inputWord) : definitionsFetch(translatedWord)
     })
-    .then(responseObject => {
-      debugger;
-      return dispatch(createCard(responseObject.results[0].id, oedScrubber(responseObject)))
+    .then(response => {
+      return dispatch(createCard(cardMaker(inputWord, targetLanguage, response)))
     })
     .catch(error => console.log(error, 'failed in actions'))
   }
