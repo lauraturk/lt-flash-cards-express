@@ -3,18 +3,30 @@ import React from 'react'
 export const CardBack = (props) => {
   const { currentCard, cardControl, showMore } = props
 
-  const showDefinitions = () => {
 
-    // const defArray = currentCard.backCard.definitions.map((def, index) => {
-    //   return (<div key={index}>{def}</div>)
-    // })
-    //
-    // if(!cardControl.showMore){
-    //   return defArray.filter((def, index) => {
-    //   index = 1
-    //   })
-    // }
-  }
+
+    const arrayFilter = () => {
+      const definitions = currentCard.backCard.definitions
+
+      let cardShowMore = cardControl.showMore
+      if(!cardShowMore) {
+        return (
+          <div>
+            {definitions[0]}
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            {definitions.map((def, index) => {
+              return <div key={index}>{def}</div>
+            })}
+          </div>
+        )
+      }
+
+    }
+
 
   const showMoreButton = !cardControl.showMore ? 'SHOW MORE' : 'SHOW LESS'
 
@@ -27,7 +39,7 @@ export const CardBack = (props) => {
       return (
         <div>
           <div>{currentCard.backCard.name}</div>
-          {showDefinitions()}
+          {arrayFilter()}
           <p onClick={() => showMore()}>{showMoreButton}</p>
         </div>
       )
