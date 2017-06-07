@@ -1,24 +1,21 @@
 export const oedScrubber = (response) => {
-  console.log(response)
-  return responseObject.results[0]
-  .lexicalEntries[0]
-  .entries[0]
-  .senses[0]
-  .definitions
+  const entries = response.results[0].lexicalEntries[0].entries
+
+  const mapEntries = entries.map(entry => {
+      return entry.senses.map(val => {
+        return val.definitions[0];
+      });
+    });
+
+
+  const flatten = (arr) => {
+    return arr.reduce((acc, val) => {
+      return acc.concat(Array.isArray(val) ? flatten(val) : val)
+    }, [])
+  }
+
+  return {
+    name: response.results[0].id,
+    definitions: flatten(mapEntries)
+  }
 }
-
-
-///trying to use reduce to pull out all the definitions of the word
-///^^^^ pulls out the first definition of the first sense of the first entry
-/// looking to get all of the definitions
-
-
-// response.results[0].lexicalEntries.reduce((accu1, entry) => {
-//   accu1.push(entry.entries.reduce((accu2, senses) => {
-//     accu2.push(senses.map(sense => {
-//       return sense.definitions
-//     }))
-//     return accu2
-//   }, [])
-//   return accu1
-// }, [])

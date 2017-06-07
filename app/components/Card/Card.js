@@ -7,14 +7,14 @@ export const Card = (props) => {
 
   const showAnswer = (answerInfo) => {
     if(!deckControl.showDeck){
-      return (<div className="card-info answer-info">{answerInfo}</div>)
+      return (<div className="card-info answer-info">{answerInfo.name}{answerInfo.definitions}</div>)
     }
 
     if(!cardControl.cardBackHidden){
-      return (<div className="card-info answer-info">{answerInfo}</div>)
+      return (<div className="card-info answer-info">{answerInfo.name}{answerInfo.defintions}</div>)
     }
   }
-////const compareLanguages for card
+
   return (
     <div className="card">
       <div>{currentCard.detectedSourceLanguage}</div>
