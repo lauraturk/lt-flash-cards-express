@@ -4,8 +4,6 @@ import { oedScrubber } from './oedScrubber'
 
 export const cardMaker = (inputWord, targetLanguage, response) => {
 
-
-
   return {
     frontCard: inputWord.q,
     detectedSourceLanguage: !response.metadata ? languageMatcher(response.data.translations[0].detectedSourceLanguage) : languageMatcher(response.results[0].language),
@@ -13,7 +11,6 @@ export const cardMaker = (inputWord, targetLanguage, response) => {
     targetLanguage: languageMatcher(targetLanguage.target),
     id: randomId(3)
   }
-
 }
 
 export const languageMatcher = (languageInitials) => {

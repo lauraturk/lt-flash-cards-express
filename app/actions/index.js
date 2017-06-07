@@ -133,3 +133,9 @@ export const nextCard = (deckControl, deck) => {
     deck
   }
 }
+
+export const showMore = () => {
+  return {
+    type: 'SHOW_MORE'
+  }
+}

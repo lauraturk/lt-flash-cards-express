@@ -1,6 +1,7 @@
 const initialState = {
   cardBackHidden: true,
-  card: {}
+  card: {},
+  showMore: false
 
 }
 
@@ -26,6 +27,11 @@ export const cardControl = (state = initialState, action) => {
       return Object.assign({}, state, {
         cardBackHidden: true,
         card: makeRandomCard(action.deck, action.deckControl)
+      })
+
+    case 'SHOW_MORE':
+      return Object.assign({}, state, {
+        showMore: !state.showMore
       })
 
     default:
