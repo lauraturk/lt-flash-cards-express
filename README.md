@@ -12,6 +12,17 @@ This project is currently in development. Currently this is the working function
 
 `git clone, npm install, npm start`
 
+To run locally, you'll need to obtain your own developer keys:
+
+1. An [Oxford Dictionaries][oed] key
+
+2. Set up your [Google Cloud Platform][google] and then enable the Translation and Vision APIs.
+
+3. `cp example.env .env` and then copy the appropriate values to `.env`.
+
+[oed]: https://developer.oxforddictionaries.com/documentation
+[google]: https://cloud.google.com/translate/docs/getting-started
+
 ## Reflection
 
   This was a 2 week long personal project for Turing School of Software and Design.
