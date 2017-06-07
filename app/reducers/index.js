@@ -9,7 +9,6 @@ import { foundWords } from './imageUpload-reducer.js'
 import { cardControl } from './controls-reducer.js'
 import { deckControl } from './deckcontrol-reducer.js'
 
-
 export const rootReducer = combineReducers({
   deckControl,
   cardControl,

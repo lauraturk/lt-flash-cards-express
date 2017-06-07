@@ -1,4 +1,3 @@
-const randomId = require('random-id')
 
 import { languagesFetch } from '../fetchHelpers/languagesFetch'
 import { translationFetch } from '../fetchHelpers/translationFetch'
@@ -6,6 +5,7 @@ import { definitionsFetch } from '../fetchHelpers/definitionsFetch'
 import { googleVisionFetch } from '../fetchHelpers/googleVisionFetch'
 import { oedScrubber } from '../fetchHelpers/oedScrubber'
 import { visionScrubber } from '../fetchHelpers/visionScrubber'
+import { cardMaker } from '../fetchHelpers/cardMaker'
 
 export const loadLanguageList = () => {
   return (dispatch) => {
@@ -21,7 +21,8 @@ export const translateWord = (inputWord, targetLanguage) => {
   return (dispatch) => {
     return translationFetch(inputWord, targetLanguage)
     .then(responseObject => {
-      return dispatch(createCard(inputWord.q, responseObject.data.translations[0].translatedText))
+      // cardObject = cardMaker(inputWord, targetLanguage, responseObject)
+      return dispatch(createCard(cardMaker(inputWord, targetLanguage, responseObject)))
     })
     .catch(error => console.log(error, 'failed in actions'))
   }
@@ -35,8 +36,8 @@ export const defineWord = (inputWord, targetLanguage) => {
       let sourceLang = responseObject.data.translations[0].detectedSourceLanguage
     return sourceLang === targetLanguage ? definitionsFetch(inputWord) : definitionsFetch(translatedWord)
     })
-    .then(responseObject => {
-      return dispatch(createCard(responseObject.results[0].id, oedScrubber(responseObject)))
+    .then(response => {
+      return dispatch(createCard(cardMaker(inputWord, targetLanguage, response)))
     })
     .catch(error => console.log(error, 'failed in actions'))
   }
@@ -65,12 +66,15 @@ export const selectLanguage = (language) => {
   }
 }
 
-export const createCard = (inputWord, translatedWord) => {
+export const createCard = (cardObject) => {
+  const { frontCard, detectedSourceLanguage, backCard, targetLanguage, id } = cardObject
   return {
     type: 'CREATE_CARD',
-    inputWord,
-    translatedWord,
-    id: randomId(3)
+    frontCard,
+    detectedSourceLanguage,
+    backCard,
+    targetLanguage,
+    id
   }
 }
 
@@ -110,6 +114,12 @@ export const showDeck = (deckName, currentDeck) => {
   }
 }
 
+export const hideDeck = () => {
+  return {
+    type: 'HIDE_DECK',
+  }
+}
+
 export const showAnswer = () => {
   return {
     type: 'SHOW_ANSWER'
@@ -121,5 +131,11 @@ export const nextCard = (deckControl, deck) => {
     type: 'NEXT_CARD',
     deckControl,
     deck
+  }
+}
+
+export const showMore = () => {
+  return {
+    type: 'SHOW_MORE'
   }
 }

@@ -1,27 +1,31 @@
 import React from 'react'
-import { Route, Link, NavLink } from 'react-router-dom'
+// import { Route, Link, NavLink } from 'react-router-dom'
 import * as icon from '../../assets/svg-icons'
+import { CardBack } from '../CardBack/CardBack'
 
 export const Card = (props) => {
-  const { currentCard, cancelCard, cardControl, deckControl } = props
+  const { currentCard, cancelCard, cardControl, deckControl, showMore } = props
 
-  const showAnswer = (answerInfo) => {
-    let $answer = null
-
-    if(!deckControl.showDeck){
-      $answer = (<div className="card-info answer-info">{answerInfo}</div>)
+  const showAnswer = () => {
+    if(!deckControl.showDeck) {
+      return (
+        <CardBack currentCard={currentCard} cardControl={cardControl} showMore={showMore} />
+      )
     }
 
-    if(!cardControl.cardBackHidden){
-      $answer = (<div className="card-info answer-info">{answerInfo}</div>)
+    if(!cardControl.cardBackHidden) {
+      return (
+        <CardBack currentCard={currentCard} cardControl={cardControl} showMore={showMore} />
+      )
     }
-    return $answer
   }
 
   return (
     <div className="card">
+      <div>{currentCard.detectedSourceLanguage}</div>
       <div className="card-info word-info">{currentCard.frontCard}</div>
-      {showAnswer(currentCard.backCard)}
+      {showAnswer()}
+      <div>{currentCard.targetLanguage}</div>
       <button onClick={() => cancelCard()}>{icon.cancelIcon}</button>
     </div>
   )

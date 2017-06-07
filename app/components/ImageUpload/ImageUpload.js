@@ -35,7 +35,7 @@ export default class ImageUpload extends Component {
 
   handleWordSelect(e) {
     const { createTranslationCard, targetLanguage } = this.props
-    createTranslationCard({'q' : e.target.innerText}, targetLanguage)
+    createTranslationCard({'q': e.target.innerText}, targetLanguage)
   }
 
   handleClear() {

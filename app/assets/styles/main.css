@@ -115,7 +115,7 @@ margin: 0 auto;
 }
 
 .nav-bar {
-  background-color: #1F9DBF;
+  background-color: darkgrey;
   background-image: url('../vintagemap.jpg');
   background-size: cover;
   background-blend-mode: color;

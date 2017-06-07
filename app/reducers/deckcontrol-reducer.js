@@ -18,6 +18,11 @@ export const deckControl = (state = initialState, action) => {
         matchedDeck: matchDeck(action.deckName, action.currentDeck),
         showDeck: true
       }
+    case 'HIDE_DECK':
+      return {
+        matchedDeck: '',
+        showDeck: false
+      }
 
     default:
       return state

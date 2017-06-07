@@ -8,6 +8,10 @@ export class CardDeck extends Component {
     super(props)
   }
 
+  componentWillUnmount() {
+    this.props.hideDeck()
+  }
+
   chooseDeck (deckName) {
     const { currentDeck, showDeck, deckControl, nextCard } = this.props
     let tempDeckControl = Object.assign({}, deckControl, {matchedDeck: deckName})
