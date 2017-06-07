@@ -15,7 +15,7 @@ import { loadLanguageList } from './actions/index.js'
 const history = createHistory()
 const routeMiddleware = routerMiddleware(history)
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(rootReducer, devTools, applyMiddleware(thunk, routeMiddleware))
+export const store = createStore(rootReducer, devTools, applyMiddleware(thunk, routeMiddleware))
 
 
 store.dispatch(loadLanguageList())
