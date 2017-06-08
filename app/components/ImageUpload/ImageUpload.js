@@ -71,7 +71,8 @@ export default class ImageUpload extends Component {
         </div>
 
       $clearWordsButton =
-        <button onClick={this.handleClear.bind(this)}>
+        <button className="button-submit"
+                onClick={this.handleClear.bind(this)}>
           {icon.cancelIcon}
           <span className="directions-display">CLEAR ALL</span>
         </button>
@@ -82,7 +83,8 @@ export default class ImageUpload extends Component {
         (<img src={imagePreviewUrl} style={{width: 300, display: 'block'}} />)
 
       $findWordsButton =
-        <button onClick={this.handleWordSearch.bind(this)}>
+        <button className="button-submit"
+                onClick={this.handleWordSearch.bind(this)}>
           {icon.searchIcon}
           <span className="directions-display">FIND WORDS</span>
         </button>
@@ -96,6 +98,7 @@ export default class ImageUpload extends Component {
             accept="image/*"
             onChange={(e) => {return this.handleFiles(e)}}/>
           {icon.pictureIcon}
+          <p className="directions-display">FIND WORDS IN A PICTURE</p>
         </label>
         {$imagePreview}
         {$findWordsButton}

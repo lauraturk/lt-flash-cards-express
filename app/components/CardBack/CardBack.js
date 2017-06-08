@@ -11,15 +11,15 @@ export const CardBack = (props) => {
       let cardShowMore = cardControl.showMore
       if(!cardShowMore) {
         return (
-          <div>
+          <div className="definition-info">
             {definitions[0]}
           </div>
         )
       } else {
         return (
-          <div>
+          <div className="definition-info scroll-info">
             {definitions.map((def, index) => {
-              return <div key={index}>{def}</div>
+              return <div className="single-def" key={index}>{def}</div>
             })}
           </div>
         )
@@ -33,12 +33,12 @@ export const CardBack = (props) => {
   const whichCard = () => {
     if(!currentCard.backCard.definitions) {
       return (
-        <div>{currentCard.backCard}</div>
+        <div className="answer-info">{currentCard.backCard}</div>
       )
     } else {
       return (
         <div>
-          <div>{currentCard.backCard.name}</div>
+          <div className="answer-info">{currentCard.backCard.name}</div>
           {arrayFilter()}
           <p onClick={() => showMore()}>{showMoreButton}</p>
         </div>
@@ -47,7 +47,7 @@ export const CardBack = (props) => {
   }
 
   return (
-    <article>
+    <article className="card-info">
       {whichCard()}
     </article>
   )
