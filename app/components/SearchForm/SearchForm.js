@@ -42,7 +42,7 @@ export default class SearchForm extends Component {
       $definitionButton = (
         <button onClick={() => {
           return this.handleClick('definition')}}>
-          Subete de nivel
+          DEFINICIóN
         </button>
       )
     }
@@ -56,6 +56,7 @@ export default class SearchForm extends Component {
     return (
       <div className="search-tools-wrapper">
         <div className="search-tools">
+          <SettingsFormContainer />
           <label className="textsearch-input">
             {icon.pencilIcon}
             <input type="text"
@@ -74,8 +75,8 @@ export default class SearchForm extends Component {
         </div>
 
         <div className="decktools-settings">
-          <SettingsFormContainer />
 
+          <CardContainer />
           <div className="deck-tools">
             <label>
               <span className="directions-display">CHOOSE A DECK</span>
@@ -101,7 +102,6 @@ export default class SearchForm extends Component {
         </div>
 
 
-        <CardContainer />
       </div>
     )
   }

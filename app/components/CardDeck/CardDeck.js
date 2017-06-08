@@ -40,7 +40,7 @@ export class CardDeck extends Component {
     const chosenDeck = Object.keys(currentDeck).find((deck) =>{
       return deck === deckName
     })
-    return (<span className="deck-counter">{currentDeck[chosenDeck].length}</span>)
+    return (<p className="deck-counter">{currentDeck[chosenDeck].length}</p>)
   }
 
   render() {

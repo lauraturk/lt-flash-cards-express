@@ -20,7 +20,7 @@ This project is currently in development. Currently this is the working function
 
   This project was an ambitious size for the time-frame. The initial hurdle was figuring out how to consume the four API calls I was making. My biggest challenge was solving for hiding and displaying cards and answers, and randomly shuffling through the cards in a deck. I learned how to approach applications in a more functional way, and got a lot of practice with Redux.
 
-  I built this project on an Express boilerplate (hoping to build the backend to serve user profiles) using react and redux to manage cards. Fetch calls are all done with Thunk. ES6, HTML5 and CSS3. I used three different API: 
+  I built this project on an Express boilerplate (hoping to build the backend to serve user profiles) using react and redux to manage cards. Fetch calls are all done with Thunk. ES6, HTML5 and CSS3. I used three different API:
       - Oxford English Dictionary API: an incredibly robust API that I would love to delve deeper into
       - Google Translate API
       - Google Vision API
@@ -34,3 +34,5 @@ This project is currently in development. Currently this is the working function
 ##### Resources:
 This World Cities Icons Set was designed by Agente Studio
 All other icons free from Sketch Resources
+
+"http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit" "Download free do whatever you want high-resolution photos from Andrew Neel"
