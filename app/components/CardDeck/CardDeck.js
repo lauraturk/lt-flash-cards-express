@@ -48,18 +48,18 @@ export class CardDeck extends Component {
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <nav className="deck-list">
           <div key={index} onClick={(e) => this.chooseDeck(e.target.innerText)}>
             <h2 className="deck-name">{deck}</h2>
+            {this.cardCounter(deck)}
           </div>
-          {this.cardCounter(deck)}
-        </nav>
       )
     })
 
     return (
       <section className="deck-list-wrapper">
-        {deckNames}
+        <nav className="deck-list">
+          {deckNames}
+        </nav>
         {this.showCard()}
       </section>
     )
