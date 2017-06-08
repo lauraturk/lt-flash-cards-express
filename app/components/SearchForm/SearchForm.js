@@ -42,7 +42,7 @@ export default class SearchForm extends Component {
       $definitionButton = (
         <button onClick={() => {
           return this.handleClick('definition')}}>
-          DEFINICIóN
+          <span className="directions-display">DEFINICIóN</span>
         </button>
       )
     }

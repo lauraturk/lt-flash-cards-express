@@ -15,7 +15,8 @@ export const cardMaker = (inputWord, targetLanguage, response) => {
 
 export const languageMatcher = (languageInitials) => {
   const languageObj = store.getState().languages.find((language) => {
-    return language.language === languageInitials
+    console.log(language.language, languageInitials);
+    return languageInitials.includes(language.language)
   })
   return languageObj.name
 }
