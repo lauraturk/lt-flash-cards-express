@@ -17,7 +17,7 @@ export const CardBack = (props) => {
         )
       } else {
         return (
-          <div className="definition-info scroll-info">
+          <div className="definition-info">
             {definitions.map((def, index) => {
               return <div className="single-def" key={index}>{def}</div>
             })}
@@ -37,17 +37,17 @@ export const CardBack = (props) => {
       )
     } else {
       return (
-        <div>
+        <div className="scroll-info">
           <div className="answer-info">{currentCard.backCard.name}</div>
           {arrayFilter()}
-          <p onClick={() => showMore()}>{showMoreButton}</p>
+          <p className="show-more-button" onClick={() => showMore()}>{showMoreButton}</p>
         </div>
       )
     }
   }
 
   return (
-    <article className="card-info">
+    <article className="card-answer-info">
       {whichCard()}
     </article>
   )

@@ -22,7 +22,6 @@ span {
 }
 
 body {
-  background-color: #1A1818;
   box-sizing: border-box;
   font-family: 'Bubbler One', sans-serif;
   margin: 0;
@@ -81,38 +80,41 @@ div::after {
   /*filter: opacity(25%);*/
   /*background-image: url('../vintagemap.jpg');*/
   /*margin: auto;*/
-  /*max-height: 100%;
-  max-width: 100%;*/
+  /*max-height: auto;*/
+  /*max-width: 100%;*/
   /*position: fixed;*/
-  position: absolute;
+  /*position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 0;*/
+  /*z-index: -12;*/
 }
 
 .page-wrapper {
+  background-attachment: fixed;
+  background: url('../background-photo.jpg') no-repeat 0 100px;
+  background-size: cover;
   position: absolute;
   top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  /*bottom: 0;*/
+  /*right: 0;
+  left: 0;*/
 }
 
 .app-wrapper {
   top: 0;
-  bottom: 0;
-  right: 0;
+  /*bottom: 0;*/
+  /*right: 0;*/
   left: 0;
+  min-height: 100vh;
   padding: 20px;
   position: relative;
   z-index: 0;
 }
 
-.app-wrapper::after {
+/*.app-wrapper::after {
   content: "";
-  background-image: url('../background-photo.jpg');
-  background-size: cover;
   border-radius: 2px;
   opacity: .7;
   top: 0;
@@ -121,7 +123,7 @@ div::after {
   right: 0;
   position: absolute;
   z-index: -1;
-}
+}*/
 
 .hidden {
   display: none;
@@ -190,6 +192,7 @@ margin: 0;
   /*display: flex;
   flex-direction: row;
   flex-wrap: wrap;*/
+  background-color: #1A1818;
   position: relative;
   top: 0;
   height: 110px;
@@ -236,6 +239,8 @@ margin: 0;
 }
 
 .deck-counter {
+  margin: 6px;
+  color: #D62970;
   border-radius: 50%;
   background-color: #F6FDF8;
   display: inline-block;
@@ -243,6 +248,7 @@ margin: 0;
   height: 26px;
   padding: 4px;
   margin-left: 0;
+  text-align: center;
 }
 
 /* home */
@@ -546,9 +552,15 @@ select:focus {
 }
 
 .word-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   font-size: 150%;
+  height: 200px;
   margin: 20px auto;
   text-align: center;
+  position: relative;
+  overflow-y:scroll;
 }
 
 .answer-info {
@@ -564,25 +576,27 @@ select:focus {
   overflow: scroll;
 }
 
-.card-info {
-  position: relative;
-
+.show-more-button {
+  margin-bottom: 50px;
 }
 
-.scroll-info {
+.card-answer-info {
+  position: relative;
+}
+
+.single-def {
+  font-size: 80%;
+}
+
+/*.scroll-info {
   overflow: scroll;
   height: inherit;
-}
+}*/
 
 .card-icon,
 .deck-list-dropdown {
   display: inline-block;
   vertical-align: middle;
-}
-
-.deck-counter {
-  margin: 6px;
-  color: #D62970;
 }
 
 /*practice page*/
@@ -597,6 +611,28 @@ select:focus {
 
 .deck-name:hover  {
   border-bottom: 4px solid #D62970;
+}
+
+.controls-wrapper {
+  width: 300px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.show-answer,
+.next {
+  background-color: #F6FDF8;
+  color: #000000;
+  font-size: 120%;
+}
+
+.show-answer:hover,
+.next:hover {
+  border-bottom: 4px solid #D62970;
+  color: #000000;
 }
 
 

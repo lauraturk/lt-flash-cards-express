@@ -23,8 +23,9 @@ export const Card = (props) => {
   return (
     <div className="card">
       <div className="language-bar top-bar">{currentCard.detectedSourceLanguage}</div>
-      <div className="word-info">{currentCard.frontCard}</div>
-      {showAnswer()}
+      <div className="word-info">{currentCard.frontCard}
+        {showAnswer()}
+      </div>
       <div className="language-bar bottom-bar">
         {currentCard.targetLanguage}
         <button className="button-submit"
