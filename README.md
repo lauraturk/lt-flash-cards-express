@@ -1,12 +1,27 @@
 ## Flash Lingua:
-#### A Travel/Language Learning app that allows you to search for translations by photo or text in any language, and monolingual definitions (Spanish only). Translation in hand, save the words you want to practice in flashcard decks tailored to you!
+
+[Production Site: Try it out here!](https://flash-lingua.herokuapp.com/search)
+
+#### A travel/language learning app that allows you to search for translations by photo or text from/to any of the 100+ languages supported by Google Translate. Additionally, definitions are available in Spanish provided by the Oxford English Dictionary. Translation or definition in hand, save the words you want to practice in flashcard decks tailored to you!
 
 ## Project Status
-This project is currently in development. Currently this is the working functionality, next steps include building a server to store user profiles, optimizing for mobile and mobile cameras, adding additional UI for the flashcard practice.
+This project is currently in development. Next steps include:
+* building a server to store user profiles 
+* optimizing for mobile and mobile cameras
+* adding additional UI for better flashcard practice.
 
 ## Project Screen Shot(s)   
+#### Finding Words and Adding cards to a deck using Google Translate
+![Find Words and Add to Deck](http://g.recordit.co/uGtHWQbwv4.gif)
 
-![MVP Functionality](http://g.recordit.co/6vwMJHJv81.gif)
+#### Finding definitions for Spanish translations using Oxford English Dictionary
+![Spanish Definition](http://g.recordit.co/tYWvYKbBPD.gif)
+
+#### Finding Words from image using Google Vision
+![Google Vision](http://g.recordit.co/k3JXmOIwlj.gif)
+
+#### Flashcards
+![Flashcards](http://g.recordit.co/vaHgMwGKQN.gif)
 
 ## Installation and Setup Instructions
 
@@ -27,14 +42,16 @@ To run locally, you'll need to obtain your own developer keys:
 
   This was a 2 week long personal project for Turing School of Software and Design.
 
-  I set out to build an app that I had wanted for many years. I am lifelong collector of words -literally I have journals full of words to look up- but rarely follow through with looking up those words much less review them. I wanted an app that would better serve advanced language learners and travelers.
+ The inspiration for this app was a desire to have a better, lazier way of finding and storing words. As a life-long language learner I love the ease integrated dictionaries lend to reading in a second language with an ebook, and found myself awkwardly trying to photograph my IRL book to achieve the same thing with Google translate. Even when I was successful, the newly acquired word was soon lost in my mind. I wanted a way to not only find, but store the words for future practice. It was important to include the Spanish dictionary in order to make flashcards that ultimately would be better for language learning. 
 
-  This project was an ambitious size for the time-frame. The initial hurdle was figuring out how to consume the four API calls I was making. My biggest challenge was solving for hiding and displaying cards and answers, and randomly shuffling through the cards in a deck. I learned how to approach applications in a more functional way, and got a lot of practice with Redux.
+  The initial hurdle was figuring out how to consume the four API calls I was making. My biggest challenge was solving for hiding and displaying cards and answers, and randomly shuffling through the cards in a deck. I learned how to approach applications in a more functional way, and got a lot of practice with Redux.
 
-  I built this project on an Express boilerplate (hoping to build the backend to serve user profiles) using react and redux to manage cards. Fetch calls are all done with Thunk. ES6, HTML5 and CSS3. I used three different API:
+  I built this project on an Express boilerplate (hoping to build the backend to serve user profiles soon) using React, React-Router and Redux. API calls done using the Fetch API and Thunk middleware. I used three different APIs:
       - Oxford English Dictionary API: an incredibly robust API that I would love to delve deeper into
       - Google Translate API
       - Google Vision API
+      
+ Unit and feature testing using fetchmock, Enzyme, and Jest with the Mocha assertion library. HTML5, CSS3 and ES6 used throughout.
 
   Next steps are improving UI and micro-interactions, optimizing for mobile and integrating the camera, and getting more out of the OED API -integrating other languages' definition. Check out my issues in Waffle.io!
 
@@ -43,7 +60,13 @@ To run locally, you'll need to obtain your own developer keys:
 
 
 ##### Resources:
+Built with [Express Boilerplate](https://github.com/martensonbj/express-boilerplate)
+
 This World Cities Icons Set was designed by Agente Studio
+
 All other icons free from Sketch Resources
 
-"http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit" "Download free do whatever you want high-resolution photos from Andrew Neel"
+[background image](http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit) by Andrew Neel
+
+##### Wireframes:
+
