@@ -1,1 +1,1 @@
-web: node src/app.js
+web:webpack --config ./webpack.config.js
