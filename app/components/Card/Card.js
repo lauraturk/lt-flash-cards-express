@@ -22,11 +22,15 @@ export const Card = (props) => {
 
   return (
     <div className="card">
-      <div>{currentCard.detectedSourceLanguage}</div>
-      <div className="card-info word-info">{currentCard.frontCard}</div>
-      {showAnswer()}
-      <div>{currentCard.targetLanguage}</div>
-      <button onClick={() => cancelCard()}>{icon.cancelIcon}</button>
+      <div className="language-bar top-bar">{currentCard.detectedSourceLanguage}</div>
+      <div className="word-info">{currentCard.frontCard}
+        {showAnswer()}
+      </div>
+      <div className="language-bar bottom-bar">
+        {currentCard.targetLanguage}
+        <button className="button-submit"
+                onClick={() => cancelCard()}>{icon.cancelIcon}</button>
+      </div>
     </div>
   )
 }

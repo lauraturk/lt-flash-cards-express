@@ -40,7 +40,7 @@ export class CardDeck extends Component {
     const chosenDeck = Object.keys(currentDeck).find((deck) =>{
       return deck === deckName
     })
-    return (<span className="deck-counter">{currentDeck[chosenDeck].length}</span>)
+    return (<p className="deck-counter">{currentDeck[chosenDeck].length}</p>)
   }
 
   render() {
@@ -48,20 +48,20 @@ export class CardDeck extends Component {
 
     const deckNames = Object.keys(currentDeck).map((deck, index) => {
       return (
-        <section>
-          <div key={index} className="deckList" onClick={(e) => this.chooseDeck(e.target.innerText)}>
+          <div key={index} onClick={(e) => this.chooseDeck(e.target.innerText)}>
             <h2 className="deck-name">{deck}</h2>
+            {this.cardCounter(deck)}
           </div>
-          {this.cardCounter(deck)}
-        </section>
       )
     })
 
     return (
-      <div className="decks">
-        {deckNames}
+      <section className="deck-list-wrapper">
+        <nav className="deck-list">
+          {deckNames}
+        </nav>
         {this.showCard()}
-      </div>
+      </section>
     )
   }
 }

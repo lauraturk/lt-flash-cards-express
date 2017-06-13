@@ -40,9 +40,11 @@ export default class SearchForm extends Component {
 
     if(this.props.targetLanguage.target === 'es'){
       $definitionButton = (
-        <button onClick={() => {
+        <button className="button-submit"
+                onClick={() => {
           return this.handleClick('definition')}}>
-          Subete de nivel
+          {icon.searchIcon}
+          <p className="directions-display">DEFINICI&#211;N EN ESPA&#209;OL</p>
         </button>
       )
     }
@@ -56,35 +58,32 @@ export default class SearchForm extends Component {
     return (
       <div className="search-tools-wrapper">
         <div className="search-tools">
-          <label className="textsearch-input">
-            {icon.pencilIcon}
-            <input type="text"
+            <input className="textsearch-input-field"
+                   type="text"
                    value={this.state.q}
                    onChange={(e) => this.handleChange(e, 'q')} />
+                   <p className="directions-display">WORD</p>
+            <SettingsFormContainer />
             <button className="button-submit"
                     type="submit"
                     onClick={(e) => {
                     return this.handleClick('translation')}}>
               {icon.searchIcon}
-              <span className="directions-display">FIND WORD</span>
+              <p className="directions-display">FIND WORD</p>
             </button>
-                    {this.showDefinitionOption()}
-          </label>
+            {this.showDefinitionOption()}
           <ImageUploadContainer />
         </div>
 
-        <div className="decktools-settings">
-          <SettingsFormContainer />
-
           <div className="deck-tools">
             <label>
-              <span className="directions-display">CHOOSE A DECK</span>
               {icon.cardIcon}
               <input className="deck-list-dropdown"
                      list="deck"
                      type="text"
                      value={this.state.deck}
                      onChange={(e) => this.handleChange(e, 'deck')}/>
+              <span className="directions-display">CHOOSE A DECK</span>
               </label>
               <datalist id="deck">
                 {Object.keys(currentDeck).map((deck, index) => {
@@ -92,16 +91,13 @@ export default class SearchForm extends Component {
                 })
               }
             </datalist>
-            <button onClick={() => this.handleDeck()}>
+            <CardContainer />
+            <button className="button-submit"
+                    onClick={() => this.handleDeck()}>
               {icon.addIcon}
-              <span className="directions-display">SAVE YOUR CARD</span>
+              <span className="directions-display">SAVE CARD TO DECK</span>
             </button>
           </div>
-
-        </div>
-
-
-        <CardContainer />
       </div>
     )
   }
