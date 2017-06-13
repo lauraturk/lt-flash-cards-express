@@ -6,7 +6,7 @@
 
 ## Project Status
 This project is currently in development. Next steps include:
-* building a server to store user profiles 
+* building a server to store user profiles
 * optimizing for mobile and mobile cameras
 * adding additional UI for better flashcard practice.
 
@@ -42,7 +42,7 @@ To run locally, you'll need to obtain your own developer keys:
 
   This was a 2 week long personal project for Turing School of Software and Design.
 
- The inspiration for this app was a desire to have a better, lazier way of finding and storing words. As a life-long language learner I love the ease integrated dictionaries lend to reading in a second language with an ebook, and found myself awkwardly trying to photograph my IRL book to achieve the same thing with Google translate. Even when I was successful, the newly acquired word was soon lost in my mind. I wanted a way to not only find, but store the words for future practice. It was important to include the Spanish dictionary in order to make flashcards that ultimately would be better for language learning. 
+ The inspiration for this app was a desire to have a better, lazier way of finding and storing words. As a life-long language learner I love the ease integrated dictionaries lend to reading in a second language with an ebook, and found myself awkwardly trying to photograph my IRL book to achieve the same thing with Google translate. Even when I was successful, the newly acquired word was soon lost in my mind. I wanted a way to not only find, but store the words for future practice. It was important to include the Spanish dictionary in order to make flashcards that ultimately would be better for language learning.
 
   The initial hurdle was figuring out how to consume the four API calls I was making. My biggest challenge was solving for hiding and displaying cards and answers, and randomly shuffling through the cards in a deck. I learned how to approach applications in a more functional way, and got a lot of practice with Redux.
 
@@ -50,7 +50,7 @@ To run locally, you'll need to obtain your own developer keys:
       - Oxford English Dictionary API: an incredibly robust API that I would love to delve deeper into
       - Google Translate API
       - Google Vision API
-      
+
  Unit and feature testing using fetchmock, Enzyme, and Jest with the Mocha assertion library. HTML5, CSS3 and ES6 used throughout.
 
   Next steps are improving UI and micro-interactions, optimizing for mobile and integrating the camera, and getting more out of the OED API -integrating other languages' definition. Check out my issues in Waffle.io!
@@ -69,9 +69,7 @@ All other icons free from Sketch Resources
 [background image](http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit) by Andrew Neel
 
 ##### Wireframes using Sketch:
-[card deck](https://github.com/lauraturk/lt-flash-cards-express/tree/master/app/screenshots/Flash-Card-Deck.png)
-[flash cards](https://github.com/lauraturk/lt-flash-cards-express/tree/master/app/screenshots/Flash-Cards.png)
-[translation options](https://github.com/lauraturk/lt-flash-cards-express/tree/master/app/screenshots/Translation-Options.png)
+![card deck](./app/screenshots/Flash-Card-Deck.png)
+![flash cards](./app/screenshots/Flash-Cards.png)
+![translation options](./app/screenshots/Translation-Options.png)
 [additional wireframes](https://github.com/lauraturk/lt-flash-cards-express/tree/master/app/screenshots)
-
-
