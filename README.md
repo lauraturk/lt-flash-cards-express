@@ -60,13 +60,18 @@ To run locally, you'll need to obtain your own developer keys:
 
 
 ##### Resources:
-Built with [Express Boilerplate](https://github.com/martensonbj/express-boilerplate)
+Built with [Express Boilerplate] (https://github.com/martensonbj/express-boilerplate)
 
 This World Cities Icons Set was designed by Agente Studio
 
 All other icons free from Sketch Resources
 
-[background image](http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit) by Andrew Neel
+[background image] (http://unsplash.com/@andrewtneel?utm_campaign=photographer-credit) by Andrew Neel
 
-##### Wireframes:
+##### Wireframes using Sketch:
+![card deck](lt-flash-cards-express/app/screenshots/Flash-Card-Deck.png)
+![flash cards](lt-flash-cards-express/app/screenshots/Flash-Cards.png)
+![translation options](lt-flash-cards-express/app/screenshots/Translation-Options.png)
+[additional wireframes](https://github.com/lauraturk/lt-flash-cards-express/tree/master/app/screenshots)
+
 
