@@ -33,6 +33,8 @@ export default class SearchForm extends Component {
     this.setState({
       [type]: ''
     })
+    this.props.clearWords()
+    this.props.cancelCard()
   }
 
   showDefinitionOption () {

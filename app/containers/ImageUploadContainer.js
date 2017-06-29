@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch) => {
     createDefinitionCard: (inputWord, targetLanguage) => {
       dispatch(defineWord(inputWord, targetLanguage))
     },
-
   }
 }
 
