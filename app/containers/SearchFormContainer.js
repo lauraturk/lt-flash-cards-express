@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SearchForm from '../components/SearchForm/SearchForm'
-import { loadLanguageList, translateWord, defineWord, addCard, cancelCard } from '../actions/index'
+import { loadLanguageList, translateWord, defineWord, addCard, cancelCard, clearWords } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return {
@@ -25,9 +25,11 @@ const mapDispatchToProps = (dispatch) => {
     addCard : (deckName, currentDeck, currentCard) => {
       dispatch(addCard(deckName, currentDeck, currentCard))
     },
-
     cancelCard : () => {
       dispatch(cancelCard())
+    },
+    clearWords: () => {
+      dispatch(clearWords())
     }
   }
 }
